@@ -1,0 +1,279 @@
+---
+title: "getting started with shiny via rmarkdown"
+author: "Kevin Stachelek"
+date: '2018-12-10'
+slug: getting-started-with-shiny-via-rmarkdown
+tags: []
+categories: []
+---
+
+
+
+<p>I work in a cancer research lab amidst exclusively wetlab researchers. We have gotten into single-cell sequencing despite scarce computational or mathematical expertise. I started as a technician after bachelor’s and learned R and python from twitter and stack overflow.</p>
+<p>I’ve made a little progress evangelizing among my wetlab colleagues but they are still mostly uncomfortable with command line work.</p>
+<p>As I’m a big fan of rstudio and the tidyverse, I’ve known about Shiny for several years. But I’ve resisted working with it because I have no experience with user-interfacing work. I’ve never done any web development. I was also worried that up-front setup work would only beget more troubleshooting work.</p>
+<p>When I build a data analysis approach for bench scientists, I often end up in either of two unfortunate scenarios 1) I devote excessive time to perfecting a script or a tool that doesn’t match the needs of other lab members. 2) I neglect a minor improvement or fix in a well-used tool that could make a major difference in a lab member’s data analysis approach.</p>
+<p>When I don’t avoid these two hazards I end up in a situation where a user adopts a new script I’ve written. They then request additional features which I add on top but which don’t fit smoothly into the logic of the script/package. This process compounds until I end up with a tortured data analysis workflow. Users accomodate themselves to this new nightmare and resist my new proposals because they entail additional effort that doesn’t seem necessary to them–only because they’re not aware of the inefficiencies in the current approach. This, of course, also has plenty to do with my work-in-progress coding skills. I’m always learning and yet I’m trapped by the inefficiencies of my past self.</p>
+<p>So, I thought that Shiny could be a solution for some of these problems. I’m gonna talk today about four main benefits: 1) the user experience is explicit, rather than being a function of the script logic.
+2) It fits easily into my normal rmarkdown-based analysis approach.
+3) There is limited file management headaches, I just email someone a url. 4) Command-line skeptics aren’t tempted to come to me for every little analysis need.</p>
+<p>So, back to the problem at hand. We work with single-cell sequencing data. After doing differential expression or pseudotime analysis, users frequently want to get a general overview of the expression of important marker genes across different conditions.</p>
+<p>I could email them an rscript that would take file input with a few command line arguments and then ouput pdfs of expression distributions. The disadvantages with this approach are: 1) Users frequently struggle to format input files perfectly leading to minor but recurrent and frustrating errors. I could write tests, but that means some work for me. 2) It is difficult to certify the data provenance. Where did grad-student Sue or postdoc Anthony has which version of the gene expression or metadata for a given experiment. 3) There are frequent minor system installation or configuration issues even in running a simple Rscript.</p>
+<p>So instead, I wrote an rmarkdown file hosted on a shiny-server that allows users to plot the distribution of read counts for a each transcript of a given gene and to specify x axes and facets in a dataset-specific way.</p>
+<p>This also required me to learn a bit of tidyeval.</p>
+<p>I work with the <a href="https://www.bioconductor.org/packages/release/bioc/html/SingleCellExperiment.html">SingleCellExperiment</a> package from Bioconductor. This makes it easy to manage and access different data types as well as experimental covariates in a portable way. You can subset data and metadata smoothly and easily wrap it all up into a simple .rds file.</p>
+<p>As I said, the thing I like most about Shiny in rmarkdown is that it fits in smoothly with my regular analysis approach.</p>
+<p>I start by loading necessary package dependencies.</p>
+<pre class="r"><code># load required libraries -------------------------------------------------
+library(tidyverse)
+library(SingleCellExperiment)
+library(cataract)
+library(annotables)
+library(gtools)
+library(here)</code></pre>
+<p>Then I load functions that are relevant for this application</p>
+<pre class="r"><code>sce_from_tibbles &lt;- function(counts, census_counts, colData){
+    featuredata &lt;- data.frame(counts[,1])
+    rownames(featuredata) &lt;- featuredata[,1]
+    
+    counts &lt;- tibble::column_to_rownames(counts, colnames(counts)[1]) %&gt;% 
+      as.matrix()
+    
+    census_counts &lt;- tibble::column_to_rownames(census_counts, colnames(census_counts)[1])
+
+    # check that dimensions of counts and census counts are equal and in same order
+    census_missing_cells &lt;- colnames(counts)[!colnames(counts) %in% colnames(census_counts)]
+    census_counts[census_missing_cells] &lt;- &quot;NA&quot;
+    census_counts &lt;- census_counts[rownames(counts),colnames(counts)] %&gt;% 
+        as.matrix()
+        
+    # check that colData and counts contain same cells
+    colData &lt;- data.frame(colData)
+    rownames(colData) &lt;- colData[,1]
+    colData &lt;- colData[colnames(counts),]
+    
+
+    
+    sumexp &lt;- SummarizedExperiment(assays=list(counts=counts, census_counts=census_counts), colData=colData, rowData=featuredata)
+    
+    # filter out cells not in comparison
+    sce &lt;- sce &lt;- as(sumexp, &quot;SingleCellExperiment&quot;)
+    
+    return(sce)
+}
+
+lookup_transcripts_from_symbols &lt;- function(symbols, annotable = annotables::grch38, t2g = annotables::grch38_tx2gene){    
+    # browser()
+    
+    trx &lt;- dplyr::filter(annotable, symbol %in% symbols) %&gt;% 
+        dplyr::inner_join(t2g, by = &quot;ensgene&quot;) %&gt;% 
+        dplyr::pull(enstxp)
+    
+    return(trx)
+    
+}
+
+plot_trx_by_axis_and_facet &lt;- function(transcript, sce, x, y = counts, facet, symbol = NULL, count_type = &quot;counts&quot;){
+    # browser()
+    
+    x_var &lt;- sym(x)
+  facet_var &lt;- sym(facet)
+
+    tidy_counts &lt;- as_tibble(assay(sce[transcript,], count_type)) %&gt;% 
+        tidyr::gather(&quot;Sample_ID&quot;, &quot;counts&quot;) %&gt;% 
+        dplyr::full_join(as_tibble(colData(sce)), by = &quot;Sample_ID&quot;) %&gt;% 
+        dplyr::mutate(!!x_var := factor(!!x_var, levels = gtools::mixedsort(unique(!!x_var)))) %&gt;%
+        dplyr::mutate(!!facet_var := factor(!!facet_var, levels = gtools::mixedsort(unique(!!facet_var)))) %&gt;%
+        dplyr::mutate(counts = as.numeric(counts)) %&gt;% 
+        identity()
+    # facet_levels &lt;- gtools::mixedsort(tidy_counts[[!!facet_var]])
+    
+    p &lt;- ggplot(tidy_counts, aes(x= !!x_var, y = counts)) + 
+        geom_boxplot() +
+        facet_grid(cols = vars(!!facet_var)) + 
+        labs(title = symbol, subtitle = transcript)
+    
+    print(p)
+    
+}</code></pre>
+<p>For the purposes of reproducibility I include the paths to the original data.</p>
+<pre class="r"><code># load data ------------------------------------------------------
+
+counts_paths &lt;- c(&quot;exp1_raw_counts.csv&quot;,
+    &quot;exp2_raw_counts.csv&quot;)
+
+normalized_counts_paths &lt;- c(&quot;exp1_norm_counts.csv&quot;,
+                  &quot;exp2_norm_counts.csv&quot;)
+
+metadata_paths &lt;- c(&quot;exp1_metadata.csv&quot;,
+                                 &quot;exp2_metadata.csv&quot;)
+
+expids &lt;- c(&quot;exp1&quot;,
+                        &quot;exp2&quot;)
+
+rds_paths &lt;- paste0(&quot;~/ShinyApps/single_cell_boxplot/&quot;, expids, &quot;.rds&quot;)</code></pre>
+<p>Then I load the data, store each sequencing batch as a <code>SingleCellExperiment</code> and save as a .rds file</p>
+<pre class="r"><code>counts &lt;- purrr::map(counts_paths, read_csv)
+norm_counts &lt;- purrr:::map(normalized_counts_paths, read_csv)
+
+colData &lt;- purrr::map(metadata_paths, read_csv)
+
+    
+sce_in &lt;- list(counts = counts, norm_counts = norm_counts, colData = colData)
+sces &lt;- purrr::pmap(sce_in, sce_from_tibbles)
+
+names(sces) &lt;- expids
+
+purrr::map2(sces, rds_paths, saveRDS)</code></pre>
+<p>Now I’m gonna start with Shiny. Because these are substantial datasets I want to load only the data that I’ll need. I use an rds file for each <code>SingleCellExperiment</code>. Then I set up a Shiny input function to allow users to start by selecting their chosen experiment.</p>
+<pre class="r"><code>selectInput(&quot;experiment&quot;, &quot;Experiment:&quot;,
+                        c(&quot;1st experiment&quot; = &quot;exp1&quot;,
+                        &quot;2nd experiment&quot; = &quot;exp2&quot;), selected = &quot;exp1&quot; )</code></pre>
+<p>At the same time I set up an <code>ActionButton</code> to trigger loading of the <code>singleCellExperiment</code>.</p>
+<pre class="r"><code>actionButton(&quot;loadButton&quot;, &quot;Load Dataset&quot;)</code></pre>
+<p>then I create an shiny::eventReactive to read in the rds file only when the user clicks the load button</p>
+<pre class="r"><code> sce &lt;- shiny::eventReactive(input$loadButton, { 
+        sce &lt;- readRDS(paste0(here(), &quot;/single_cell_boxplot/&quot;, input$experiment, &quot;.rds&quot;))
+    # sce &lt;- sces0[[input$experiment]]
+    sce
+    })</code></pre>
+<p>One of the surprisingly simple features of shiny is the ability to generate <a href="https://shiny.rstudio.com/articles/dynamic-ui.html">custom ui elements</a> depending on other elements of the app. Here I’m generating sets of shiny::radioButtons for the user on the basis of the loaded dataset. This is done with the help of the shiny::renderUI function which only takes effect once the <code>SingleCellExperiment</code> is loaded.</p>
+<pre class="r"><code>output$x_axis &lt;- shiny::renderUI({
+  sce_cd &lt;- colnames(colData(sce()))
+  shiny::radioButtons(inputId = &quot;x_axis&quot;, label = &quot;X axis variable&quot;, choices = sce_cd)
+})
+
+output$facet &lt;- shiny::renderUI({
+  sce_cd &lt;- colnames(colData(sce()))
+    shiny::radioButtons(inputId = &quot;facet&quot;, label = &quot;facet variable&quot;, choices = sce_cd)
+})
+
+uiOutput(&quot;x_axis&quot;)
+
+uiOutput(&quot;facet&quot;)</code></pre>
+<p>I load a few more ui elements to allow the user to specify which gene they want to plot by typing in the gene symbol.</p>
+<pre class="r"><code>textInput(&quot;feature&quot;, label = &quot;gene or set of genes to plot (separated by &#39;, &#39;): &quot;,
+               value = &quot;RXRG&quot;)</code></pre>
+<p>And a few shiny::radioButtons to specify whether they want normalized counts or not.</p>
+<pre class="r"><code>shiny::radioButtons(inputId = &quot;assay&quot;, label = &quot;count type:&quot;, choices = c(&quot;raw&quot; = &quot;counts&quot;, &quot;census&quot; = &quot;census_counts&quot;))</code></pre>
+<div id="assay" class="form-group shiny-input-radiogroup shiny-input-container">
+<label class="control-label" for="assay">count type:</label>
+<div class="shiny-options-group">
+<div class="radio">
+<label>
+<input type="radio" name="assay" value="counts" checked="checked"/>
+<span>raw</span>
+</label>
+</div>
+<div class="radio">
+<label>
+<input type="radio" name="assay" value="census_counts"/>
+<span>census</span>
+</label>
+</div>
+</div>
+</div>
+<p>Finally I add another actionButton that triggers plotting make the app more predictable.</p>
+<pre class="r"><code>actionButton(&quot;goButton&quot;, &quot;Go!&quot;)</code></pre>
+<p>Now that the ui is taken care of, the tricky part starts. I define a funtion, <code>lookup_transcripts_from_symbols</code>, that uses Stephen Turner’s reliable <a href="https://github.com/stephenturner/annotables">annotables</a> package.</p>
+<p>For a given gene symbol supplied by the user, I then look up ensembl transcript ids and trigger using the actionButton I just defined.</p>
+<pre class="r"><code>trx&lt;- shiny::eventReactive(input$goButton, {
+    transcripts &lt;- lookup_transcripts_from_symbols(input$feature)
+    transcripts
+    })
+
+# renderText(trx())</code></pre>
+<p>Finally, I need to make plots for all the transcripts. I’ll break this into three parts. 1) generating the plots 2) making space for the plots in the app 3) displaying the plots</p>
+<p>I would suggest reading about, and even more, <em>experimenting</em> with <a href="https://shiny.rstudio.com/tutorial/written-tutorial/lesson6/">reactive expressions</a> in shiny. I still find them a little hard to understand.</p>
+<ol style="list-style-type: decimal">
+<li>Generating the plots is fairly easy. I create a function <code>plot_trx_by_axis_and_facet</code> to subset the <code>singleCellExperiment</code> tidy the count data and plot with ggplot.</li>
+</ol>
+<pre class="r"><code>plot_trx_by_axis_and_facet &lt;- function(transcript, sce, x, y = counts, facet, symbol = NULL, count_type = &quot;counts&quot;){
+    # browser()
+    
+    x_var &lt;- sym(x)
+  facet_var &lt;- sym(facet)
+
+    tidy_counts &lt;- as_tibble(assay(sce[transcript,], count_type)) %&gt;% 
+        tidyr::gather(&quot;Sample_ID&quot;, &quot;counts&quot;) %&gt;% 
+        dplyr::full_join(as_tibble(colData(sce)), by = &quot;Sample_ID&quot;) %&gt;% 
+        dplyr::mutate(!!x_var := factor(!!x_var, levels = gtools::mixedsort(unique(!!x_var)))) %&gt;%
+        dplyr::mutate(!!facet_var := factor(!!facet_var, levels = gtools::mixedsort(unique(!!facet_var)))) %&gt;%
+        dplyr::mutate(counts = as.numeric(counts)) %&gt;% 
+        identity()
+    # facet_levels &lt;- gtools::mixedsort(tidy_counts[[!!facet_var]])
+    
+    p &lt;- ggplot(tidy_counts, aes(x= !!x_var, y = counts)) + 
+        geom_boxplot() +
+        facet_grid(cols = vars(!!facet_var)) + 
+        labs(title = symbol, subtitle = transcript)
+    
+    print(p)
+    
+}</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Making space for the plots in the app again uses the `shiny::renderUI function used above. I check the number of plots generated, then create a</li>
+</ol>
+<pre class="r"><code>p_list &lt;- shiny::eventReactive(input$goButton, {
+    
+    p_list &lt;- lapply(trx(), plot_trx_by_axis_and_facet, sce(), x = input$x_axis, facet = input$facet, symbol = input$feature, count_type = input$assay)
+    p_list
+})
+
+shiny::renderUI({
+    plot_output_list &lt;- lapply(1:length(p_list()), function(i) {
+        plotname &lt;- paste(&quot;plot&quot;, i, sep=&quot;&quot;)
+        plotOutput(plotname)
+    })
+    do.call(tagList, plot_output_list)
+})</code></pre>
+<pre><code>## function (...) 
+## {
+##     if (length(outputArgs) != 0 &amp;&amp; !hasExecuted$get()) {
+##         warning(&quot;Unused argument: outputArgs. The argument outputArgs is only &quot;, 
+##             &quot;meant to be used when embedding snippets of Shiny code in an &quot;, 
+##             &quot;R Markdown code chunk (using runtime: shiny). When running a &quot;, 
+##             &quot;full Shiny app, please set the output arguments directly in &quot;, 
+##             &quot;the corresponding output function of your UI code.&quot;)
+##         hasExecuted$set(TRUE)
+##     }
+##     if (is.null(formals(origRenderFunc))) 
+##         origRenderFunc()
+##     else origRenderFunc(...)
+## }
+## &lt;bytecode: 0x3abee38&gt;
+## &lt;environment: 0x3ac1d50&gt;
+## attr(,&quot;class&quot;)
+## [1] &quot;shiny.render.function&quot; &quot;function&quot;             
+## attr(,&quot;outputFunc&quot;)
+## function (outputId, inline = FALSE, container = if (inline) span else div, 
+##     ...) 
+## {
+##     if (anyUnnamed(list(...))) {
+##         warning(&quot;Unnamed elements in ... will be replaced with dynamic UI.&quot;)
+##     }
+##     container(id = outputId, class = &quot;shiny-html-output&quot;, ...)
+## }
+## &lt;bytecode: 0x3abd030&gt;
+## &lt;environment: namespace:shiny&gt;
+## attr(,&quot;outputArgs&quot;)
+## list()
+## attr(,&quot;hasExecuted&quot;)
+## &lt;Mutable&gt;
+##   Public:
+##     clone: function (deep = FALSE) 
+##     get: function () 
+##     set: function (value) 
+##   Private:
+##     value: FALSE</code></pre>
+<pre class="r"><code>shiny::observe({
+for (i in 1:length(p_list())) {
+    local({
+        my_i &lt;- i
+        plotname &lt;- paste(&quot;plot&quot;, my_i, sep=&quot;&quot;)
+        output[[plotname]] &lt;- renderPlot({
+            p_list()[[my_i]]
+        })
+    })
+}
+})</code></pre>

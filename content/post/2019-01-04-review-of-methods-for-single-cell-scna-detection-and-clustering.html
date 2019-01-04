@@ -1,0 +1,105 @@
+---
+title: Review of Methods for Single Cell SCNA Detection and Clustering
+csl: [cell.csl]
+bibliography: [2019-01-04-review-of-methods-for-single-cell-scna-detection-and-clustering.bib]
+author: ~
+date: '2019-01-04'
+slug: review-of-methods-for-single-cell-scna-detection-and-clustering
+categories: []
+tags: []
+---
+
+
+
+<div id="the-issue" class="section level1">
+<h1>The issue</h1>
+<p>I’m working on somatic copy number alterations (SCNA) in single cells. Lots of interesting work on this topic is being done by the Kuhn/Hicks lab at USC. The problem I’m focusing on here is clustering of SCNA in single cells.</p>
+</div>
+<div id="the-software" class="section level1">
+<h1>The Software</h1>
+<p>I’ve so far found three software pacakages for SCNA calling and sample clustering, two come from two labs at Cold Spring Harbor Laboratory (CSHL), with some overlapping personnel.</p>
+<ol style="list-style-type: decimal">
+<li><a href="http://qb.cshl.edu/ginkgo/?q=/EGgIcLtaAcUEbqb1VaIa">Ginkgo</a> <span class="citation">(Garvin et al., 2015)</span></li>
+<li><a href="https://github.com/KrasnitzLab/SCclust">SCclust</a></li>
+</ol>
+<p>Ginkgo comes as an integrated shiny app hosted at CSHL while SCclust is under active development and seems to require extensive configuration and installation.</p>
+<p>The third comes as a bioconductor package and integrates karyotype heterogeneity.</p>
+<ol start="3" style="list-style-type: decimal">
+<li><a href="https://bioconductor.org/packages/release/bioc/html/AneuFinder.html">Aneufinder</a> <span class="citation">(Bakker et al., 2016)</span></li>
+</ol>
+<p>Each of them seem to proceed from .bam/.bed input files and yield SCNA segmentation profiles and sample dendrograms on a range of metrics (euclidean distance, correlation, etc.)</p>
+</div>
+<div id="the-problem" class="section level1">
+<h1>The Problem</h1>
+<p>After trying some of our data in Ginkgo, my PI commented that an unbiased comparison between SCNA profiles for the purposes of building a tree might be deceptive because correlation of some features might be due to similar selective pressures and disease processes rather than shared inheritance between cells.</p>
+<p>Some background, it is thought that tumor evolution occurs through clonal evolution. That is, minor changes in the genome of a given cell result in proliferation of that cell and formation of a clone. This is thought to lie behind chemotherapy resistance and relapse. Chemotherapy kills all but a few resistant cells which then grow out as a clone and are refractory to future chemotherapy.</p>
+<p>In retinoblastoma as in many cancers, stereotypical SCNA profiles are common. The functional significance of these changes is poorly understood, but it is reasonable to think that certain changes confer a survival advantage. It is therefore reasonable to think that SCNAs might arise in overlapping regions in two clones despite there being no direct relation between the two. If you’re trying to infer clones from SCNA data then, it’s not enough to look at overall correlation between two cells.</p>
+<p>You might be able to distinguish clones on the basis of the breakpoints of SCNAs, as it would be much less likely that two separate clones could develop SCNA in identical chromosomal regions.</p>
+<p>I don’t understand what clustering method would take that into account. The specifics of clustering is a bit of blind-spot for me. I understand the principles behind different methods (complete, average, ward, etc.) but I’m not clear how to account for this seeming limitation. Doubtless it’s a common worry in application of clustering to many datasets.</p>
+</div>
+<div id="so-which-to-use" class="section level1">
+<h1>So Which To Use?</h1>
+<p>I’m also still uncertain the best implementation of single cell SCNA analysis to run. Can either method address this issue?</p>
+<div id="ginkgo" class="section level2">
+<h2>Ginkgo</h2>
+<p>Ginkgo seems to be an implementation of the method laid out in <span class="citation">Baslan et al. (2015)</span></p>
+<p>I’ve found several citations for Ginkgo and/or <span class="citation">Baslan et al. (2015)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>One comparison between SCNA called from single cell RNA sequencing data <span class="citation">(Poirion et al., 2018)</span>.</li>
+<li>Another method for calling SCNA from single cell RNA sequencing data <span class="citation">(Patel et al., 2014)</span>.</li>
+<li>An application for deriving estimates of chromosomal instability from single cell SCNA <span class="citation">(Greene et al., 2016)</span></li>
+<li>A method for improved haplotype phasing by relying on whole genome amplification data <span class="citation">(Satas and Raphael, 2018)</span></li>
+<li>An application of single cell SCNA for parafin-embedded samples <span class="citation">(Martelotto et al., 2017)</span></li>
+<li>A method of whole genome amplification proposed to reduce error and improve precision of single cell SCNA <span class="citation">(Chen et al., 2017)</span></li>
+</ol>
+</div>
+<div id="aneufinder" class="section level2">
+<h2>Aneufinder</h2>
+<p>I’ve found some for Aneufinder:</p>
+<ol style="list-style-type: decimal">
+<li>A method for improved haplotype phasing by relying on whole genome amplification data <span class="citation">(Satas and Raphael, 2018)</span></li>
+</ol>
+</div>
+<div id="scclust" class="section level2">
+<h2>SCclust</h2>
+<p>SCclust isn’t published yet, though the PI responsible seems to be deeply involved in single cell SCNA work. Information I’ve found relating to SCclust includes:</p>
+<ol style="list-style-type: decimal">
+<li>CORE called “A Software Tool for Delineating Regions of Recurrent DNA Copy Number Alteration in Cancer” <span class="citation">(Sun and Krasnitz, 2019)</span></li>
+</ol>
+</div>
+</div>
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
+<div id="refs" class="references">
+<div id="ref-Bakker2016">
+<p>Bakker, B., Taudt, A., Belderbos, M.E., Porubsky, D., Spierings, D.C., Jong, T.V. de, Halsema, N., Kazemier, H.G., Hoekstra-Wakker, K., Bradley, A., et al. (2016). Single-cell sequencing reveals karyotype heterogeneity in murine and human malignancies. Genome Biology <em>17</em>, 1–15.</p>
+</div>
+<div id="ref-Baslan2015">
+<p>Baslan, T., Kendall, J., Ward, B., Cox, H., Leotta, A., Rodgers, L., Riggs, M., D’Italia, S., Sun, G., Yong, M., et al. (2015). Optimizing sparse sequencing of single cells for highly multiplex copy number profiling. Genome Research <em>125</em>, 714–724.</p>
+</div>
+<div id="ref-Chen2017">
+<p>Chen, C., Xing, D., Tan, L., Li, H., Zhou, G., Huang, L., and Xie, X.S. (2017). Single-cell whole-genome analyses by Linear Amplification via Transposon Insertion (LIANTI). Science <em>356</em>, 189–194.</p>
+</div>
+<div id="ref-Garvin2015">
+<p>Garvin, T., Aboukhalil, R., Kendall, J., Baslan, T., Atwal, G.S., Hicks, J., Wigler, M., and Schatz, M.C. (2015). Interactive analysis and assessment of single-cell copy-number variations. Nature Methods <em>12</em>, 1058–1060.</p>
+</div>
+<div id="ref-Greene2016">
+<p>Greene, S.B., Dago, A.E., Leitz, L.J., Wang, Y., Lee, J., Werner, S.L., Gendreau, S., Patel, P., Jia, S., Zhang, L., et al. (2016). Chromosomal instability estimation based on next generation sequencing and single cell genome wide copy number variation analysis. PLoS ONE <em>11</em>, 1–17.</p>
+</div>
+<div id="ref-Martelotto2017">
+<p>Martelotto, L.G., Baslan, T., Kendall, J., Geyer, F.C., Burke, K.A., Spraggon, L., Piscuoglio, S., Chadalavada, K., Nanjangud, G., Ng, C.K., et al. (2017). Whole-genome single-cell copy number profiling from formalin-fixed paraffin-embedded samples. Nature Medicine <em>23</em>, 376–385.</p>
+</div>
+<div id="ref-Patel2014">
+<p>Patel, A.P., Tirosh, I., Trombetta, J.J., Shalek, A.K., Gillespie, S.M., Wakimoto, H., Cahill, D.P., Nahed, B.V., Curry, W.T., Martuza, R.L., et al. (2014). Single-cell RNA-seq highlights intratumoral heterogeneity in primary glioblastoma. Science <em>344</em>, 1396–1401.</p>
+</div>
+<div id="ref-Poirion2018">
+<p>Poirion, O., Zhu, X., Ching, T., and Garmire, L.X. (2018). Using single nucleotide variations in single-cell RNA-seq to identify subpopulations and genotype-phenotype linkage. Nature Communications <em>9</em>, 4892.</p>
+</div>
+<div id="ref-Satas2018">
+<p>Satas, G., and Raphael, B.J. (2018). Haplotype phasing in single-cell DNA-sequencing data. Bioinformatics <em>34</em>, i211–i217.</p>
+</div>
+<div id="ref-Sun2019">
+<p>Sun, G., and Krasnitz, A. (2019). Chapter 4 CORE : A Software Tool for Delineating Regions of Recurrent. <em>1878</em>.</p>
+</div>
+</div>
+</div>
