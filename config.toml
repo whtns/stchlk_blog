@@ -29,7 +29,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
     description = "A website built through Hugo and blogdown."
     dateFormat = "2006/01/02"
     customCSS = ["css/custom.css"]
-    customJS = ["js/center-img.js", "js/right-quote.js", "js/no-highlight.js", "js/fix-footnote.js"]
+    customJS = ["js/link-external.js", "js/center-img.js", "js/right-quote.js", "js/no-highlight.js", "js/fix-footnote.js"]
     
     # options for highlight.js (version, additional languages, and theme)
     highlightjsVersion = "9.12.0"
