@@ -6,5 +6,5 @@ disable_highlight: true
 ---
 
 <div id="widerimg">
-    <img src="/img/chinatown_portrait.png">
+    <img src="/img/chinatown_portrait.jpg">
 </div>
