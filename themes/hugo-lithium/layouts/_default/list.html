@@ -1,14 +1,15 @@
 {{ partial "header.html" . }}
 
 <main class="content" role="main">
-	{{if not .IsHome}}
-	  {{ if .Content }}
-	  <article class="article">
-	    <div class="article-content">
-	      {{ .Content }}
-	    </div>
-	  </article>
-	  {{ end }}
+
+  {{ if .Content }}
+  <article class="article">
+    <div class="article-content">
+      {{ .Content }}
+    </div>
+  </article>
+  {{ end }}
+  {{if not .IsHome}}
 	  <div class="archive">
 	    {{ range (where .Data.Pages "Section" "!=" "").GroupByDate "2006" }}
 	    <h2 class="archive-title">{{ .Key }}</h2>
@@ -21,9 +22,8 @@
 	    </article>
 	    {{ end }}
 	    {{ end }}
-	    {{ end }}
 	  </div>
-
+	{{end}}
 </main>
 
 {{ partial "footer.html" . }}
