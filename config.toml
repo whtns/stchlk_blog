@@ -1,4 +1,4 @@
-baseurl = "/"
+baseurl = "https://stchlk.rbind.io/
 languageCode = "en-us"
 title = "Kevin Stachelek"
 theme = "hugo-lithium"
@@ -13,14 +13,19 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
     name = "About"
     url = "/about/"
 [[menu.main]]
+    name = "Blog"
+    url = "/blog/"
+[[menu.main]]
     name = "GitHub"
-    url = "https://github.com/rstudio/blogdown"
+    url = "https://github.com/whtns"
 [[menu.main]]
     name = "Twitter"
-    url = "https://twitter.com/rstudio"
+    url = "https://twitter.com/stchlk"
 
 [params]
     description = "A website built through Hugo and blogdown."
+    dateFormat = "2006/01/02"
+    css = "css/custom.css"
 
     # options for highlight.js (version, additional languages, and theme)
     highlightjsVersion = "9.12.0"
