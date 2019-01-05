@@ -1,8 +1,0 @@
----
-title: test2
-author: Kevin Stachelek
-date: '2019-01-05'
-slug: test2
-categories: []
-tags: []
----
