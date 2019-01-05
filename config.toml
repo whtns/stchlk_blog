@@ -1,4 +1,4 @@
-baseurl = "https://stchlk.rbind.io/
+baseurl = "https://stchlk.rbind.io/"
 languageCode = "en-us"
 title = "Kevin Stachelek"
 theme = "hugo-lithium"
@@ -16,6 +16,9 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
     name = "Blog"
     url = "/blog/"
 [[menu.main]]
+    name = "Extras"
+    url = "/extras/"
+[[menu.main]]
     name = "GitHub"
     url = "https://github.com/whtns"
 [[menu.main]]
@@ -25,8 +28,9 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 [params]
     description = "A website built through Hugo and blogdown."
     dateFormat = "2006/01/02"
-    css = "css/custom.css"
-
+    customCSS = ["css/custom.css"]
+    customJS = ["js/center-img.js", "js/right-quote.js", "js/no-highlight.js", "js/fix-footnote.js"]
+    
     # options for highlight.js (version, additional languages, and theme)
     highlightjsVersion = "9.12.0"
     highlightjsCDN = "//cdnjs.cloudflare.com/ajax/libs"
