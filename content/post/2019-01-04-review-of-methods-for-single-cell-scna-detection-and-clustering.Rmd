@@ -1,5 +1,5 @@
 ---
-title: Review of Methods for Single Cell SCNA Detection and Clustering
+title: Methods for Single Cell SCNA Detection and Clustering
 csl: [cell.csl]
 bibliography: [2019-01-04-review-of-methods-for-single-cell-scna-detection-and-clustering.bib]
 author: ~
