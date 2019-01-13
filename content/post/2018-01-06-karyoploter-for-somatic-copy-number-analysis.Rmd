@@ -68,5 +68,5 @@ plot_all_to_file <- function(raw_cov_list, file_name, gene_ranges, chr_select, .
 knitr::include_graphics("/img/heatmap_SCNA.png")
 ```
 
-![Karyoploter Heatmap](/img/heatmap_SCNA.png)
+![Karyoploter Heatmap](heatmap_SCNA.png)
 
