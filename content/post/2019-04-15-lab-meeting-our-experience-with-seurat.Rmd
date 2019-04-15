@@ -23,4 +23,4 @@ I tried to cover:
 2. How we applied Seurat and what advantages it has offered.
 3. Other ways forward with similar mature single cell analysis tools. 
 
-You can view the slides [here](/slides/20190412_lab_meeting/single_cell_seurat_lab_meeting.Rmd)
+You can view the slides [here](/slides/20190412_lab_meeting/single_cell_seurat_lab_meeting.html)
