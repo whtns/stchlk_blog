@@ -1,0 +1,13 @@
+---
+title: "using_crispri_for_induced_SCNA.Rmd"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+miller huang ucsf 
+
+used as lineage tracing in combination with RDseq?

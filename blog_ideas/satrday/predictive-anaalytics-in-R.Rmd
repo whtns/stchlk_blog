@@ -1,0 +1,15 @@
+---
+title: "predictive anaalytics in R"
+output: html_notebook
+---
+
+```{r, setup}
+knitr::opts_chunk$set(echo = F)
+library(tidyverse)
+library(rprojroot)
+library(fs)
+```
+
+
+predictive anaalytics in R
+

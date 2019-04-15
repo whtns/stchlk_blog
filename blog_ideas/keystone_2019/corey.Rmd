@@ -1,0 +1,17 @@
+---
+title: "R Notebook"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+build time course information into the dimensionality reduction algorithm
+
+zunder and lujan et al 
+
+FLOWMAP
+
+should talk

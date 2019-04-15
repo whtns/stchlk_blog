@@ -1,0 +1,49 @@
+---
+title: "emily_fabyanic.Rmd"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+methylcytosine acts as a cell-type specific epigenetic modification
+
+dna methylation removed by tet deoxygenases. 
+
+first oxidized product of demethylation cascade. 
+
+## two ways
+
+1. diluted in a passive way
+
+2. removed active mech 
+
+further oxidized
+
+## neurons
+
+1. post-mitotic so HmC only removed by active forms. enrichment versus other tissues 
+
+occurs after birth during synapse formation 
+
+## hmC has capacity to regulate gene transcription
+
+## studying challenging in sc 
+
+1. single-cell methylome relies on bisulfite sequencing sum of methylcytosine and h-met-C;
+
+## techniques require ug of DNA
+
+1. APOBEC3A (A3A) deaminates mC at permissive chemical conditions 
+
+### repurpose 
+
+deaminate C and mC 500x more effic than hmC
+
+## ACE-Seq 
+
+used bisulite which deaminate all except hmC
+
+scABA-seq

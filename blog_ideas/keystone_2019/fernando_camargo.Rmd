@@ -1,0 +1,31 @@
+---
+title: "fernando_camargo.Rmd"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+## lineage tracing with transpososons
+
+dox-inducible transposase, insertion site is random
+
+### cons
+biased toward sorted
+not entirely quantitative
+
+### simultaneous clonal ancestry and transcriptomic analysis
+
+in vitro
+
+in vivo 
+
+1. CARLIN (CRISPR array repair lineage tracing)
+
+### questions
+
+1. closer we get to trans state of potent stem cell find close relationship with megaK cell. Why?
+
+FC: 

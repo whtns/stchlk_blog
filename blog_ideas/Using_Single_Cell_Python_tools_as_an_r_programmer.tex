@@ -1,0 +1,153 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+    \setmainfont[]{Calibri Light}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Using\_Single\_Cell\_Python\_tools\_as\_an\_r\_programmer.Rmd},
+            pdfauthor={Kevin Stachelek},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{Using\_Single\_Cell\_Python\_tools\_as\_an\_r\_programmer.Rmd}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{Kevin Stachelek}
+    \preauthor{\centering\large\emph}
+  \postauthor{\par}
+    \date{}
+    \predate{}\postdate{}
+  
+
+\begin{document}
+\maketitle
+
+Hey Martin,
+
+Long time since we talked. Hope you're doing alright. What are you up
+to? Any new climbing photos I can share with the lab?
+
+I'm writing because we're attempting to use some tools written in python
+for these single cell sequencing projects and I wanted to 1) get your
+opinion about reliability and advisability. 2) get a few specific
+details straightened out.
+
+Are you still able to help out a bit? If so, I'll send you a detailed
+follow up email. (I didn't want to scare you off with a wall of text)
+
+Thanks!
+
+A few of us went to the
+\href{https://www.keystonesymposia.org/index.cfm?e=web.Meeting.Program\&meetingid=1610}{Keystone
+single cell symposium conference} where we heard talks from lots of
+computational biologists and programmers.
+
+\hypertarget{a-few-of-the-python-based-tools}{%
+\subsection{A few of the python-based
+tools}\label{a-few-of-the-python-based-tools}}
+
+\href{https://github.com/jessemzhang/tn_test}{truncated normalization
+test}
+
+\href{https://www.biorxiv.org/content/10.1101/463265v1}{biorxiv paper}
+
+\hypertarget{scanpy}{%
+\subsubsection{\texorpdfstring{\href{https://github.com/theislab/scanpy}{scanpy}}{scanpy}}\label{scanpy}}
+
+Suite of software for exploring and describing single cell datasets
+similar to Seurat, Bioconductor methods but writtn in python
+
+\hypertarget{scvelo}{%
+\subsubsection{\texorpdfstring{\href{https://github.com/theislab/scvelo}{scvelo}}{scvelo}}\label{scvelo}}
+
+RNA Velocity determination. `RNA velocity' is a recently discovered
+measure of the ratio of unspliced to splice RNA species. It acts as a
+measure of active transcription. It is used to aid sorting of scRNAseq
+data on the basis of developmental state. scvelo is an improved
+implementation of velocyto
+
+\hypertarget{dca---deep-count-autoencoder-for-denoising-scrna-seq-data}{%
+\subsubsection{\texorpdfstring{\href{https://github.com/theislab/dca}{DCA}
+- Deep count autoencoder for denoising scRNA-seq
+data}{DCA - Deep count autoencoder for denoising scRNA-seq data}}\label{dca---deep-count-autoencoder-for-denoising-scrna-seq-data}}
+
+\hypertarget{scgen}{%
+\subsubsection{\texorpdfstring{\href{https://github.com/theislab/scGen}{scGen}}{scGen}}\label{scgen}}
+
+\href{https://www.biorxiv.org/content/early/2018/12/14/478503}{biorxiv}
+
+An application of neural networks to scRNAseq data. Theis likened it to
+facial simulation approaches (like putting glasses on cells)
+
+termed `style transfer'. Typical application described was simlutaion of
+excitation state/perturbation? across datasets lacking experimental
+perturbation.
+
+
+\end{document}

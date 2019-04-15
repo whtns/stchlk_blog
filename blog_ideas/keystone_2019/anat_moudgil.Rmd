@@ -1,0 +1,40 @@
+---
+title: "anat_moudgil.Rmd"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+joint assay of scRNAseq and trasncriptoin factor binding
+
+zeng et al cell 2018
+
+
+## calling cards
+
+transposon calling cards. TF fused to tranposase. 
+
+TF binds in genome; trans dragged along and inserts transposon near tf-binding site
+
+## self-reporting transposon
+
+1. standard reporter construct minus AAAAAA; pol2 transcribes reporter through end of transposon and incorporate flanking sequence; rt result, pcr all; enrich for border regions bewteen transposon and sequence; map to genome. 
+
+## srts can be recovered from scRNAseq libaries; but problem is 3' end counting. 
+
+use circularization scheme; shear; ad adapters; amplify 
+
+## SRTs deconvolve TF binding in vitro; 
+
+## SRTs deconvolve TF binding in vivo; 
+
+used 
+
+### questions
+
+1. tried clone id aftet transposon usage to say what detection limit is per cell?
+
+AM: done comparison between DNA and RNA; correlation between bulk and single cell; 

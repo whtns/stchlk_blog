@@ -1,0 +1,74 @@
+---
+title: "traj_in_organoids.Rmd"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+## Background
+
+DLL1 is a human homolog of the Notch Delta ligand
+
+Yap1 is a protein that acts as a transcriptional regulator by activating the transcription of genes involved in cell proliferation and suppressing apoptotic genes.
+
+##  question
+
+1. What is driving organoid development
+
+bulk RNAseq 
+
+all cell types from intestinal walls 
+
+then did single cell in culture found two clusters 
+
+max myc pparg etv4 rel tead4 tead1 fosl1 all regulated by YAP1
+
+Yap1 is important for intestinal regeneration 
+
+did not explain methods to activate yap
+
+yap important ot form organoid 
+
+### mechanisms of crypt formation screening for self organization
+
+phenotypic landscape of organoid development
+
+## how many phenotypes exist?
+
+
+
+### 
+
+## Questions
+
+KS: How did they separate cells, via FACS only?
+
+KS: what is variable YAP (variable inhibition of YAP)
+
+Scott Fraser: can nudge enterocysts into symmetry breaking mode?
+
+Prisca Liberali: Yes, but enterocysts rotate into matrigel, etc. 
+
+FT: order cells by similarity, but if aligned cells along trajectory could just sort by size and get the same results?
+
+PL: in system they start from single cells; using traj can help; issue is that if only using size first part of traj is nothing and only end will have information. 
+FT: what about cell number?
+
+PL: yes but cell number is exponential at beginning. problem with var in organoid is
+
+FT: no variable at certain pseudotimes?
+
+PL: yes, growth stereotypic at beginning
+
+AN: assymmetry at 16 cell stage; also same in mouse embryo; inside cells and outside cells yields differential Yap signaling. Is geometry neglected in this system?
+
+PL: yes, geom is different, but size is same. there is movement of cells on apical side. example, FUCCI is difficult to use becaue cells are so fast cycling
+
+AN: Yap for mechanical stress usually. can put embryoids under stress?
+
+PL: yes matias noodle hydrogel to form organoid needs specific mechanics. Need stiffness. could changing matrix locally afffect diff?
+
+
+

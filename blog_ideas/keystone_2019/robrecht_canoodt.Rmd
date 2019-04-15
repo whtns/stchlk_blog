@@ -1,0 +1,14 @@
+---
+title: "robrecht_canoodt.Rmd"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+dynamic process occuring within dataset
+
+> 75 methods developed
+

@@ -1,0 +1,56 @@
+---
+title: "rick_horwitz.Rmd"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+rick horwitaz 'state-space of stem cell signatures
+
+## questions
+
+1. how define and organize cell pehno (types and states)
+
+2. how selective gene expression and cell environ produce diff cell pheno
+
+3. how cells transition between states 
+
+### goals 
+
+1. gfp tag organelles of cell
+2.  conda install -c anaconda cython 
+
+[allen cell structure segmenter](https://github.com/AllenInstitute/aics-segmentation)
+
+[biorxiv](https://www.biorxiv.org/content/early/2018/12/08/491035)
+
+###  look at different organelles with respect to each other. 
+
+cannot manage poly-tagging; cells get stressed 
+
+solution is machine learning and inclusion of information on different channels: bright-field hoechst, etc. 
+
+### how to integrate transcript and structural data
+
+## questions
+
+LP: predict organelle; validate with image based multiplexing; actual locations differed from prediction
+
+RH: limitations are computational. needs to be done structure by structure; 
+
+TS: segmentation but not tracking, why?
+RH: 4 dyes leads to cell death; cell interactions and reorganizations; time lapse is more difficult. 
+
+LP: amazing resource; ordering ips cells; how general is stress of tags on cells?
+
+RH: there is compensation to limit amount of tagged gene. perturbation maybe not detectable
+
+TS: maybe sacrifice quality of images for health of cells; why use GFP only; limits spectral scope.
+
+RH: stem cells are especially sensitive; went conservative with GFP; reds are perturbing; GFP have less 
+
+AN: possible to 
+

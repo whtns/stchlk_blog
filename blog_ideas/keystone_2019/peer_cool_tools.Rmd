@@ -1,0 +1,53 @@
+---
+title: "Pe'er Cool Tools"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+# cell fate should be modeled continuously
+
+## Manu Setty 
+
+[Palantir](https://www.biorxiv.org/content/early/2018/08/05/385328)
+
+1. Models as kNN-graph
+
+assumption: cells don't go 'back in time' 
+
+differentaion as markov chain
+
+## palantir in hematopoesis
+
+1. connecting dots across time points didn't work because developmental time is fast-forward 
+
+2. developed new method of manifold alignment
+
+augmentation scales affinities of MNNs 
+
+'MNN augmentation'
+
+'multi-scale diffusion components' <- part of all modern pseudotime algorithms
+
+# questiosn
+
+1. how many master regulators are related to cell fate decisions? 2-3, 5?
+
+no definitive answer; it's definitely more than one 
+
+2. memory effect in DE or VE cells in the gut; many different paths through pt; would there be a reduction in entropy if you looked back?
+
+memory effects are minor; 
+
+3. how dense information in experiment; cell num, deep seq, how far apart in time?
+
+pe'er used 120k cells. ~1k per cell; time points can be manipulated with harmony
+
+4. regulators that are primary and patterning are they conserved across phylo distances--not an interesting question
+
+5. 
+
+

@@ -1,0 +1,41 @@
+---
+title: "sinem_saka.Rmd"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+multiplex signal amp method
+
+## challenges with high-throuh mapping of proteins
+
+primer exchange reaction as a barcode extension strategy (PER)
+
+also singal amplification by exchange reaction (SABER)
+
+50 orthogonal SABER amplifiers 
+
+in situ applications of SABER 
+
+1. IF: 
+
+[saka and wang biorxiv 2018](https://doi.org/10.1101/401810)
+
+used mouse retina cryosections from Cepko!
+
+### FISH applications of SABER 
+
+### expansion microscopy
+
+## questions 
+
+SF: how long is amplicon; is label domain limiting for super-resolution ability?
+
+SS: thorough response; magnification presented is not at diffraction limit; 
+
+AN: how quantitive is the method? always fully packed?
+
+SS: below theoretical limit. maybe there is quenching effect; can show validation with RNA in dropseq; variation in intensity of puncta--no answer 

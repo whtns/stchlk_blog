@@ -1,0 +1,17 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r, setup}
+knitr::opts_chunk$set(echo = F)
+library(tidyverse)
+library(rprojroot)
+library(fs)
+```
+
+
+```{r}
+
+```
+

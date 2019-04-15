@@ -1,0 +1,15 @@
+---
+title: "tf_reprogram_cell_state.Rmd"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+questions
+
+EN: tfs needed for lymphocyte are redudnat and incoherenet. how can we generate cell types that have more complicated networks of tfs.
+
+XH: if you can narrow list to ~50 factors can test every single combination. but this doesn't account for tfs whose function switches by expression level; not addressed currently because system uses high titer. 

@@ -1,0 +1,17 @@
+---
+title: "chengzhe_tian.Rmd"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+global tracker for cancer cells heterogeneity
+
+## mapk pathway imporant 
+
+drug tolerance in melanoma; mapk is always on, uncontrolled prolif. 
+
+dabrafenib is treatment; 

@@ -1,0 +1,57 @@
+---
+title: "notes_on_tumor_evolution.Rmd"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+# Multi-regional Sequencing Elucidates the Evolution of Clear Cell Renal Cell Carcinoma
+
+
+Multi-regional WGS and WES in local and metastatic tumors describes
++ tumor origin, 
++ intratum het
++ evolution
++ route to metastasis
+
+Clear cell Renal Cell Carcinoma (ccRCC) is often metastatic
+
+Loss of _VHL_ on 3p occurs in ~90% of cases. 
+
+# Timing somatic events in the evolution of cancer
+
+## Abstract
+
+Cancer arises through accumulation of somatic mutations over time
+
+The sequence of changes affects diagnosis and progression
+
+WGS allows understanding of evol history of tumor 
+
+## Intro
+
+### History
+1. Armitage and doll with sequence of stages
+2. Knudson's two-hit hypothesis
+3. Clonal evolution proposed by Nowell
+
+What is the timing and order of somatic mutations?
+
+Addressed by Vogelstein--compared genomic aberrations in different samples between precursors and tumors or across patients with different stages
+
+This can be made precise by using trees of DAGs;
+Algorithms have been developed to inferthe timing of mutations from single biopsies
+
+### Timing events across multiple samples 
+
+Multiple samples from same tumor sep by space | time is most direct method 
+
+Clonal mutations common to tumor cells preced subclonal mutations 
+
+Common to compare primary with met samples
+
+
+

@@ -1,0 +1,37 @@
+---
+title: "wolf_reik.Rmd"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+## epigenetics
+
+1. coferring memory
+2. erasing memory
+3. cell fate diverse
+4. degrade cell function during aging
+
+
+### oliver stegle
+
+[MOFA](https://github.com/bioFAM/MOFA)
+
+[cardelino](https://github.com/PMBio/cardelino) clone and donor identification from single-cell data
+
+questions
+
+1. scMTseq to predict chipseq? what is source of data for pseudotime?
+
+WR: cannot predict; pseudotime from methylation and accessibility
+
+DP: surprised about opening of ecto, meso, endo serially; some point all open?
+
+WR: need more cells; possibility of meso, then endo, second hier system? E5.5 and 
+
+ER: how devel buffered against noise? how much buffering against development does methylation provide.
+
+WR: 

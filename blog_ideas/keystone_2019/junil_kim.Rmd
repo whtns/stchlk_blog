@@ -1,0 +1,24 @@
+---
+title: "junil_kim.Rmd"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+reconstrcuting gene regulatory network from scRNA seq data
+
+SCNS-toolkit is pre-existing method boolean network
+  cannot be applied ot large number of genes
+  
+PIDS partial information decomposition
+
+SCODE differential equation 
+
+GRNVBEM bayesian inference
+
+algorithm for large scale causal network reconstruction
+
+'transfer entropy' 

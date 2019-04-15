@@ -1,0 +1,32 @@
+---
+title: "stephen_quake.Rmd"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+## quanticel drug development
+
+## allergy data
+
+## tabula muris browser 
+
+reference tool for normal mouse tissue transcriptome
+
+* normal tissue data valuable for drug development; get idea of receptor localization throughout the body
+
+* 
+
+questions 
+
+DC: 10x vs Smart-seq 
+
+SQ: number of genes/cell FACS w/ Smart-seq gives better sensitivity 2-3x; 10x increased cell numbers; both methods can be useful. 
+
+FT: quanticel; looked for CSCs; biologist should be able to pick marker genes; 
+
+
+

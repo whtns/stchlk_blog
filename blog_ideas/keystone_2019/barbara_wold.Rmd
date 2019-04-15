@@ -1,0 +1,25 @@
+---
+title: "barbara_wold.Rmd"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+scisor-seq combined 10x and pacbio
+
+ali mortazavi uci 
+
+transcriptclean and TALON for long reads 
+
+look at differnetial isoform usage 
+
+### questions 
+
+AK: alternative splicing; people have given up; how much info is there?
+BW: there are gradations. 80-20 to the reverse; probabilistic. half-time of RNA may be relevant. need to do velocity with it. 
+
+AN: pacbio; is there length bias? sequences shorter more favorably. 
+BW: don't notice length bias; distribution doesn't look too different; 

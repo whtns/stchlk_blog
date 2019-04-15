@@ -1,0 +1,30 @@
+---
+title: "lucas_pelkmans.Rmd"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+How emergent properties arise and cross biological scales
+
+ecological ideas
+
+1. population context and cellular state increase probability of virus infection. A context-driven cell fate decision. 
+
+a. study cell associations  in space 
+
+  mrna and protein inteactions in single cells. 
+  
+clustering of single cells by subcellular resolution imaging
+
+pixel-by-pixel in hydrogel mounted cells. DAPI realignment 
+
+questions
+
+1. multiplex images how? how is segmentation done? what about depth?
+
+how do you assign mcus to single cells? maybe you don't need to. 
+

@@ -1,0 +1,51 @@
+---
+title: "xiaowei_zhuang.Rmd"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+## single cel transcriptome and genome imaging
+
+uses MERFISH
+
+how is it an alternative to SABER?
+
+detection efficiency > 90%
+
+spatial transcriptome
+
+id gene reg nets
+
+cells in complex tissues 
+screening of pooled libraries 
+3d org of chromatin and chromosome
+
+## preoptic region of the hypothalamus
+
+### used 10x and MERFISH
+### 3d organization of RNA
+
+
+### tracing 3d conformation of chromatin
+id chrom compartments 
+id TADs
+
+domain boundaries near CTCF sites 
+
+### questions
+
+FT: determining neural clusters ~30; could also use neighbor/spatial information?
+XZ: no; possible yes. they're working on it. maybe also cell-cell comms
+
+caltech/postdoc: look at intron/exon and splicing state of 
+XZ: yes, but resolution is difficult
+
+RS: cell type over slices change? are there gradients of expression over tissue
+
+AN: only somatically expressed expression
+XZ: technical chalenge to 
+

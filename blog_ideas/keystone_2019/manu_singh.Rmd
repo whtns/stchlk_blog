@@ -1,0 +1,30 @@
+---
+title: "manu_singh.Rmd"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+## linking high-throughput single cell RNA-seq w/ targeted long read sequencing
+
+### anttigen acceptro transscripts
+
+1. characterizing vdj region by sequence; want to link to cellular phenotype
+
+### high throughput is 3' end counting is problem
+
+1. incorporation of targeted capture allows deep characterization of genes of interest with high accuracy
+
+2. 
+
+martin smith alex swarbrick chris goodnow ghamdan al-eryani
+
+## questions
+
+1. novo nordisk: tcr sequences thrown out as doublets?
+
+MS: hard to know? 
+

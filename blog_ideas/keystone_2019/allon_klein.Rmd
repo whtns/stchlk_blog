@@ -1,0 +1,45 @@
+---
+title: "allon_klein.Rmd"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+shotgun paradigm ot trajectory inference
+
+1. many choices in data processing shape hierarchy
+
+2. phenotypic branch points do not equal decision points
+
+3. landscapes show average of dynamics of many cells
+
+4. more than one dynamic model can fit the same data
+
+lineage tracing overcomes many of these limitatations. 
+
+we can test assumpotions in single cell analysis
+
+a. early gene expression landscape reflects spatial organization of hte embryo
+
+'graph coarse-graining methods' 
+
+what is fate mapping? 
+
+tracer-seq lineage tracingi in embryos (library of plasmids)
+
+lineage analysis on landscapes in hematopoiesis 
+
+questions
+
+1. does an scRNA-seq inferred ierarch reflect the hierarchy of fate choice 
+
+2. where are fate commitments?
+
+3. are theree multiple trajectories 
+
+4. does pseudotime reflect real time 
+
+5. is scRNAseq predictive of scRNA seq of cell fate 

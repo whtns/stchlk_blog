@@ -1,0 +1,20 @@
+---
+title: "Berthold Gottgens"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+
+uses waddington-ot for embedding across time course 
+
+```{r}
+
+```
+
+trajectory method: [PAGA](https://www.biorxiv.org/content/early/2018/11/04/208819)
+
+chimeric myeloid cells 

@@ -1,0 +1,149 @@
+---
+title: "R Notebook"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+## spatial transcriptomics
+
+1. [feldman](https://www.biorxiv.org/content/10.1101/563338v2)
+
+2. [STARMAP](http://science.sciencemag.org/content/361/6400/eaat5691)
+
+## Deep learning
+
+1. li et. al NAR (nucleic acids research) 2017
+
+2. de-noising autoencoders
+
+3. scVI 
+  + nir yosef 
+  + variational inference
+
+## experimental multi-omics
+
+1. sci-ATAC-seq
+  + Tn5 enzyme tagmentation is critical
+  + profile histone and tf binding requires specific antibodies
+2. CUT and TAG
+  + Tn5 fused to protein A which bind IgG
+3. ACT-seq (carter et. al biorxiv 2019)
+4. single-cell calling cards
+  + moudgil et al 
+5. sci-CAR 
+  + shendure
+  
+## pseudotime 
+
+1. Monocle published 2014 
+2. SPRING
+3. URD
+  + farrell et. al 
+  
+## developmental
+
+1. cae et al mouse org
+2. packer et al c elegans
+3. plass et al planaria
+
+## mitochondia lineage tracing
+1. 10x mut. rate in mitochondira
+2. 100-1000s of MT/cell
+3. EMBLEM
+4. ATAC-seq enriches for mtDNA
+5. endogenouse lineage tracing
+
+## harmonize data
+1. LIGER
+2. seurat v3
+
+## alt. seq technologies
+1. splice sites scISOR-seq
+2. gupta et al NBT 2018
+3. mandalorian
+
+## alternative sequencing tech 
+1. Natarajan biorxiv 2018
+
+# smibert
+
+## multimodal single cell analysis
+
+1. stuart and satija 2019 table
+2.
+
+1. comb indexing
+  + sci-ATAC cusanovich
+  + sci-RNA cao 
+  + sci-DNA Hi-C 
+  
+## sci-CAR
+
+## sc calling cards
+
+1. create an mrNA or protein based readout of assay of interest
+
+## ECCITE-seq
+
+1. stoeckius et al 2017
+
+##  cell-hashing
+
+1. 
+
+## 5 prime barcoding for immune reconstruction
+
+##
+1. gating based on protein levels
+2. soluble rt primer in master mix 
+3. 
+
+## crispr adatations
+1. CRISPER-seq/perturb-seq
+2. CROP-seqf 
+
+# MerFISH Moffitt
+
+## segmentaiton
+done using total RNA
+
+# 10x scATAC-seq
+
+## BCC greenleaf lab
+
+## cis/trans regulations for finding tumor effects
+1. peaks from ATAC to infer regulators of tumor response
+2. differentiall acceissible regions (DAR)
+
+* all about accessibility of promoters 
+
+## reg landscape of t cells
+1. 
+
+# deep learning in genomics
+
+## autoencoders
+de-noising
+
+
+## generative adversarial networks
+cscgan
+wasserstein gan
+
+what if random noise not used as input vector
+
+## variational autoencoder
+1. scVI 
+
+lopez et al 2018 nature methods
+
+2. scGEN
+perturbation response for out of sample cells 
+
+
+
+  

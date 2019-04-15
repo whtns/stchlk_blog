@@ -1,0 +1,12 @@
+---
+title: "julie_sneddon.Rmd"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+lineage dynamicsof pancreatic endocrine development at single-cell resolution
+

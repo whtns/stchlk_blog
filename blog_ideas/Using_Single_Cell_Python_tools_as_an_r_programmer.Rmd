@@ -1,0 +1,51 @@
+---
+title: "Using_Single_Cell_Python_tools_as_an_r_programmer.Rmd"
+author: "Kevin Stachelek"
+output:
+  pdf_document:
+    latex_engine: xelatex
+mainfont: Calibri Light
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+Hey Martin, 
+
+Long time since we talked. Hope you're doing alright. What are you up to? Any new climbing photos I can share with the lab? 
+
+I'm writing because we're attempting to use some tools written in python for these single cell sequencing projects and I wanted to 1) get your opinion about reliability and advisability. 2) get a few specific details straightened out.
+
+Are you still able to help out a bit? If so, I'll send you a detailed follow up email. (I didn't want to scare you off with a wall of text)
+
+Thanks! 
+
+A few of us went to the [Keystone single cell symposium conference](https://www.keystonesymposia.org/index.cfm?e=web.Meeting.Program&meetingid=1610) where we heard talks from lots of computational biologists and programmers. 
+
+## A few of the python-based tools
+
+[truncated normalization test](https://github.com/jessemzhang/tn_test)
+
+[biorxiv paper](https://www.biorxiv.org/content/10.1101/463265v1)
+
+
+### [scanpy](https://github.com/theislab/scanpy)
+
+Suite of software for exploring and describing single cell datasets
+similar to Seurat, Bioconductor methods but writtn in python
+
+### [scvelo](https://github.com/theislab/scvelo)
+
+RNA Velocity determination. 'RNA velocity' is a recently discovered measure of the ratio of unspliced to splice RNA species. It acts as a measure of active transcription. It is used to aid sorting of scRNAseq data on the basis of developmental state. scvelo is an improved implementation of velocyto
+
+### [DCA](https://github.com/theislab/dca) - Deep count autoencoder for denoising scRNA-seq data 
+
+### [scGen](https://github.com/theislab/scGen)
+
+[biorxiv](https://www.biorxiv.org/content/early/2018/12/14/478503)
+
+An application of neural networks to scRNAseq data. Theis likened it to facial simulation approaches (like putting glasses on cells)
+
+termed 'style transfer'. Typical application described was simlutaion of excitation state/perturbation? across datasets lacking experimental perturbation.
+

@@ -1,0 +1,14 @@
+---
+title: "diffex_and_gsea.Rmd"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+diffex and gsea are both done commonly usually DE > GSEA.
+
+iDEA to integrate the two together
+

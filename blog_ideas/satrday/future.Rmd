@@ -1,0 +1,38 @@
+---
+title: "future.Rmd"
+output: html_notebook
+---
+
+```{r, setup}
+knitr::opts_chunk$set(echo = F)
+library(tidyverse)
+library(rprojroot)
+library(fs)
+```
+
+
+```{r}
+x <- list(a = 1:50, b = 51:100, c = 101:150, d = 151:200)
+
+y <- list()
+y <- lapply(x, FUN = sum)
+```
+
+```{r}
+y <- parallel::mclapply(x, FUN = sum, mc.cores = 4)
+```
+
+```{r}
+library(parallel)
+workers <- makeCluster(4)
+
+y <- parLapply(x, FUN = sum, workers)
+```
+
+```{r}
+
+```
+
+
+
+

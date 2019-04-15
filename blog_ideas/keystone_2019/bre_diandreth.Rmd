@@ -1,0 +1,13 @@
+---
+title: "bre_diandreth.Rmd"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+## method to make transfection more efficient
+
+component ratios are critical 

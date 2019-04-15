@@ -1,0 +1,26 @@
+---
+title: "rene_maehr.Rmd"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+# mol basis of endoderm development and dysfunction
+
+## define dynamic trancriptome changes and chromatin access
+
+michael ziller tf motifs from atac; sampled ~50 DNA BPs 
+
+## how to test?
+
+AAVS-dCas9-KRAS; is cas9-inactive -> CRISPRi 
+
+crispri reveals tgfbeta tf-specific differentiation roadblocks 
+
+not all targets from pathway in same cluster 
+
+FOXA2 in human differentiation
+

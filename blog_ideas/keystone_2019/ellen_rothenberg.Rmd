@@ -1,0 +1,35 @@
+---
+title: "ellen_rothenberg.Rmd"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+makeing t cellsotent from multipotent progenitors
+
+environmental notch-DL signaling
+
+how to validate pseudotime?
+
+1. rna velocity
+
+2. seqfish
+
+3. sampling via FACS with putative marker genes id'd by pseudotime followed by culture
+
+questions 
+
+1. seqfish 85-90% capture efficiency
+
+analysis of amounts of covarying genes
+
+2. cells proliferate; are changes in transcription factor tied to cell cycle?
+
+i don't understand answer; think that maybe delay, churning between cell cycle states
+
+3. add lmo2 back then look at epigenetic landscape. Is there memory? memory in transcriptome
+
+4. 

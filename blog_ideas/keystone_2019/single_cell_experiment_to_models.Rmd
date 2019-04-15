@@ -1,0 +1,59 @@
+---
+title: "single_cell_experiment_to_models.Rmd"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+# High throughput measurement of single cells 
+
+1. gene experssion profiling
+2. dna contacts wit hwingle cell hi-c
+
+
+what 
+
+* algorithms?
+* what can be learned?
+* what cannot be learned?
+* mechanistic insights
+
+1. represent gnee regulatory networks by directed (causal) network
+
+perform interventions on network by intervening on nodes (genes)
+
+soft intervention (SI) gene knockdown
+hard intervention (HI) gene knockout
+
+SI gives same amount of information as HI (Yang, Katcoff, Uhlr, ICML 2018)
+
+(Agrawal, Squires, Yang, Shanmugam and Uhler AISTATS 2019)
+
+algortihms for inferringa causal network for mobs and int data or difference of regulatory network (Wang, Solus, Yang and Uhler NeurIPS 2017; Want, Squires, Belyaeva and Uhler NeurIPS 201
+
+causal transportability 
+
+ineferring chromosome intermingling from Hi-C data
+
+develop ellipsoid packing algortihm differentially penalizes overlap based on co-expression of genes 
+
+Shivashankar and Uhler -- cancer detection via Neural Nets
+
+questions 
+
+1. differences in chromosome packing on the basis cell stress covariates of cell characteristics 
+variability in configurations of ESCs depending on stiffness of cells 
+
+2. does gene exression follow chromosomeal packing because is robust across pseudotransplantation
+
+3. causal inference based on differences rather than whole network 
+
+should we look at DAGs or not? Are there backups; problems with assumptions in causal inference 
+
+4. Optimal transport, what other work?
+
+causal network need not be same as GRN 
+

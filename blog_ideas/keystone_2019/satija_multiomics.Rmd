@@ -1,0 +1,95 @@
+---
+title: "Satija multiomics"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+## Strategies for Data integration 
+
+1. MNNCorrect and CCA both interesting; going to combine parts of both
+
+###
+
+pca find variation in single ds
+
+cca finds covaration in multiple ds
+
+steps:
+1. run CCA (or others) Satija
+2. id MNN in two ds  Marioni
+3. prioritize robust correspondences Pe'er
+
+output: integrate and transfer information across ds using this method
+
+problem: could be incorrectly assigned 'anchors' 
+response: incorrect anchors are also highly variable; prioritzie 'consistent' anchors
+
+all present in preprint
+
+1. when comparing cells across seq techs. sometimes only one seq tech has been used in literature. Good thing: true negatives can be id'd
+
+## transferring multimodal data (multiples types of RNAseq data)
+
+Imputation different than denoising(?)
+
+### limitations
+
+1. stochastic 
+
+2. antibodies with no transcript. correlation
+
+### integrate across modalities (multi-omics)
+
+1. how to 'anchor' across RNAseq and ATACseq?
+
+#### Methods
+
+1. run [cicero](https://cole-trapnell-lab.github.io/cicero-release/): pools gene 'activity' matrix from scATAC -- accessiblity of promoter and gene body give similar results
+
+2. co-variation across modules of loci
+
+	+ 
+	
+3. subset of co-varying datasets
+
++ 
+
+
+### results
+
+1. 
+
+### more results
+
+1. scRNA-seq nad scATAC-seq from 10x genomics
+
+### integation across sequencing and imaging data
+
+1. 1000 genes in 1500 cells with 14249 and 10k genes/cell
+
+## Questions
+
+1. how many genes needed?
+redundant genes are not essential, what does that mean? differs between tech
+fewer genes with smart-seq more needed wiht drop-seq
+
+2. integation of rna and ATAC
+how does method work for subtypes of ATAC? 
+
+3. what is limit of dataset integration? 3, 4, etc. is it better with more datasets?
+can scale by buliding pair-wise tree of samples? how? As adding more data signal becoming cleaner. because why? 
+
+4. what is model for testing sensitivity with imaging data
+noisy imaging data will result in noisy imputation? what is benchmark dataset? cross-species might be the way to go? 	
+
+5. is this a solution for reproducibility?
+batch effects are relentless. Or maybe they aren't batch effects? who knows? how to know what is technical biological batch effect? how to know if biology is in situ. 
+
+6. 
+
+
+

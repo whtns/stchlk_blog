@@ -1,0 +1,213 @@
+---
+title: "Review of Keystone Single Cell Day 1"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+# Scott Frasier - Single Cell Imaging
+
+Presented on various methods of live cell and single cell imaging. I only caught a few of his methods 
+
+## Methods
+
+1. Hybridization chain reaction (HCR) Dirks et. al 2004
+	+ quantitiave
+	+ better resolution than conventional FISH
+2. CytoF
+	+ doesn't work for RNA ISH
+3. MUSE HCR
+	+ method of amplificaiton; works off simliar principle to cyTOF?
+
+## approaches to speed imaging
+
+1. DLSM (laser-scanning to create excited plane)
+2. HySP (hyperspectral phaser)
+
+
+## current problems 
+
+1. increase penetration depth to ensure rapid comparison of different depths
+
+# Fabian Theis - Modeling differentiation and stimulation resposne in single-cell genomics
+
+## unfamiliar ideas
+1. [latent spaces](https://www.quora.com/What-is-the-meaning-of-latent-space)
+2. manifold alignment (batch correction or multi-omic integration)
+
+## References
+
+angerer et al current opininon ins systems biology 2017
+
+## ideas
+
+range of 'modes' of single cell biology
+
+insert image
+
+wagner et al nature biotech 2016
+
+## software
+
+### [scanpy](https://github.com/theislab/scanpy)
+
+Suite of software for exploring and describing single cell datasets
+similar to Seurat, Bioconductor methods but writtn in python
+
+### [PAGA](https://github.com/theislab/paga)
+
+pseudotime ordering using graph-based cell relationsships
+
+### [scvelo](https://github.com/theislab/scvelo)
+
+RNA Velocity determination. 'RNA velocity' is a recently discovered measure of the ratio of unspliced to splice RNA species. It acts as a measure of active transcription. It is used to aid sorting of scRNAseq data on the basis of developmental state. scvelo is an improved implementation of velocyto
+
+### [DCA](https://github.com/theislab/dca) - Deep count autoencoder for denoising scRNA-seq data 
+
+### [scGen](https://github.com/theislab/scGen)
+
+[biorxiv](https://www.biorxiv.org/content/early/2018/12/14/478503)
+
+An application of neural networks to scRNAseq data. Theis likened it to facial simulation approaches (like putting glasses on cells)
+
+termed 'style transfer'. Typical application described was simlutaion of excitation state/perturbation? across datasets lacking experimental perturbation.
+
+predecessors: scVAE, scVI, VASC, SAUCIE, MAGAN 
+
+alternatives: [MAGIC](https://www.biorxiv.org/content/early/2017/02/25/111591), [SAVeR](https://github.com/mohuangx/SAVER)
+
+
+#### questions
+
+Dana Pe'er: DCA uses a zero-inflation model but this is seen as possibly an artifact of 10x data. 
+
+FT: including 'count'? is solution
+
+AN: Is cell cycle progression a confounding factor (with what software)
+
+FT: not addressed in single gene; more relevant in covariance/gene regulatory
+
+AN: I'm skeptical about latent space methods, what sanity checks are possible?
+
+FT: Quality measures are testing multiple cell types? 
+
+AN: Re Scgen, how can we take orthologs into when comparing across species 
+
+FT: very simply. there is probably room to expand
+
+AN: Are there applications clinically, for example in patient counseling for immunotherapy selection
+
+FT: need to be conservative
+
+# Rahul Satija
+
+## Strategies for Data integration 
+
+MNNCorrect and Canoncial Correlation Analysis (CCA) are both interesting; going to combine parts of both
+
+PCA find variation in a single dataset while Canonical Correlation Analysis (CCA) finds covaration in multiple datasets. This can be used as a tool to batch-correct. 
+
+steps:
+1. run CCA (or potentially other dimensionality reduction techniques)
+2. Identify mutual nearest neighbors in two datasets  Marioni
+3. prioritize robust correspondences Pe'er
+
+problem: could be incorrectly assigned 'anchors' 
+response: incorrect anchors are also highly variable; prioritzie 'consistent' anchors
+
+output: integrate and transfer information across datasets using this method
+
+all present in preprint
+
+## transferring multimodal data (multiples types of RNAseq data)
+
+example given is scATACseq
+
+Is imputation different than denoising(?)
+
+### limitations
+
+1. variation can be stochastic 
+
+2. antibodies may have no transcript. correlation
+
+3. how to 'anchor' across RNAseq and ATACseq?
+
+#### Methods
+
+1. run [cicero](https://cole-trapnell-lab.github.io/cicero-release/): pools gene 'activity' matrix from scATAC -- accessiblity of promoter and gene body give similar results
+
+2. find co-variation across modules of loci
+	
+3. subset of co-varying datasets
+
+
+### results
+
+1000 genes in 1500 cells with 14249 and 10k genes/cell
+
+## Questions
+
+AN: how many genes needed?
+RS: redundant genes are not essential, (what does redundant mean here? differs between tech; fewer genes with smart-seq more needed wiht drop-seq
+
+AN: how does method work for subtypes of ATAC? 
+
+AN: What is the limit of dataset integration? 3, 4, etc. Is it better with more datasets?
+RS: can scale by buliding pair-wise tree of samples? how? As adding more data signal becoming cleaner. because why? 
+
+AN: what is model for testing sensitivity with imaging data
+RS: noisy imaging data will result in noisy imputation? what is benchmark dataset? cross-species might be the way to go? 	
+
+5. is this a solution for reproducibility?
+RS: batch effects are relentless. Or maybe they aren't batch effects? who knows? how to know what is technical biological batch effect? how to know if biology is in situ. 
+
+# Allon Klein
+
+## Software 
+
+[SPRING](https://academic.oup.com/bioinformatics/article/34/7/1246/4708233)
+
+A method for visualizing scRNAseq data without beginning or end points; 
+
+uses force-directed graph; caution! uses Python 2
+
+### shotgun-sequencing paradigm of trajectory inference
+
+	1. many choices in data processing shape hierarchy
+	
+	2. phenotypic branch points do not equal decision points
+	
+	3. landscapes show average of dynamics of many cells
+	
+	4. more than one dynamic model can fit the same data
+
+__lineage tracing overcomes many of these limitatations. __
+
+we can test assumpotions in single cell analysis
+
+a. early gene expression landscape reflects spatial organization of hte embryo
+
+'graph coarse-graining methods' 
+
+what is fate mapping? 
+
+tracer-seq lineage tracing in embryos (library of plasmids)
+
+lineage analysis on landscapes in hematopoiesis 
+
+### questions
+
+1. does an scRNA-seq inferred hierarchy reflect the hierarchy of fate choice?
+
+2. where are fate commitments?
+
+3. are there multiple trajectories 
+
+4. does pseudotime reflect real time 
+
+5. is scRNAseq predictive of scRNA seq of cell fate 
+

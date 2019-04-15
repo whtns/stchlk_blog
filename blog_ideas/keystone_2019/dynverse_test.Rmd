@@ -1,0 +1,31 @@
+---
+title: "R Notebook"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+```{r}
+library(dyno)
+library(tidyverse)
+```
+
+```{r}
+data("fibroblast_reprogramming_treutlein")
+
+dataset <- wrap_expression(
+  counts = fibroblast_reprogramming_treutlein$counts,
+  expression = fibroblast_reprogramming_treutlein$expression
+)
+```
+
+```{r}
+guidelines <- guidelines_shiny(dataset)
+methods_selected <- guidelines$methods_selected
+```
+
+
+

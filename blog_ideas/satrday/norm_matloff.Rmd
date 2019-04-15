@@ -1,0 +1,62 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r, setup}
+knitr::opts_chunk$set(echo = F)
+library(tidyverse)
+library(rprojroot)
+library(fs)
+```
+
+
+```{r}
+library(polyreg)
+library(prVis)
+```
+
+## polyreg 
+
+polyreg says NN=PR
+
+use bigmemory package
+	KS: how does loom compare?
+	
+	
+r is a function language
+
+	`+` an example 
+	
+PR means polyreg 
+
+
+KF is kerasformula
+	an R friendly interface to keras
+	
+NY taxi dataset 
+
+timings rankings are deceptive
+beware of 'p-hacking' effects
+	multiple testing effects
+	
+DN deepnet r package
+
+million song dataset
+
+alexnet resnet are ml image processing libraries (CNNs)
+
+## Nonlinear PCA
+
+t-sNE or UMAP--hyperparameters and convergence
+
+[prVis](https://github.com/matloff/prVis) is an alternative
+
+swiss roll dataset d surendran
+
+
+```{r prVis-intro, }
+
+
+
+```

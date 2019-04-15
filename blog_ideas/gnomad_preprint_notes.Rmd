@@ -1,0 +1,28 @@
+---
+title: "gnomad_preprint_notes.Rmd"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+# Intro
+
+1. Protein-coding variants inform phenotype studies
+
+2. Genes critical for function will be depleted for variants in natural pop. 
+
+3. predicted loss-of-function (pLoF) are enriched for annotation errors. 
+
+4. ~126k exomes and ~16k genomes in gnomAD. 
+
+5. Identify ~444k high-confidence pLoF variants 
+
+improved model of mutation classify protein-coding genes describing intolerance to inactivation
+
+validate in: 
+1. model org
+2. human cells
+

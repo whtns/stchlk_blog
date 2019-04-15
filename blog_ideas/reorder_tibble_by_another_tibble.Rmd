@@ -1,0 +1,53 @@
+---
+title: "R Notebook"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+```{r}
+mtcars
+
+mt2 <- tibble(row.names = rownames(mtcars), color = "red") %>%
+	column_to_rownames("row.names")
+```
+
+```{r}
+
+# setting up example data
+ap0 <- nycflights13::airports
+
+ap1 <- ap0 %>% 
+	select(sort(colnames(.))) %>% 
+	arrange(lat) %>% 
+	mutate(order = rownames(.))
+
+cn <- colnames(ap1)
+cn <- cn[!cn == "order"]
+# join two dataframes with 'correct order' tibble listed first
+res <- dplyr::left_join(ap1, ap0, by = cn)
+
+# verify that resulting colnames and rownaems are in correct order
+identical(res$faa, ap1$faa)
+identical(colnames(res), colnames(ap1))
+
+
+```
+
+```{r}
+mtdf0 <- mtcars
+
+mtdf1 <- mtcars[sort(rownames(mtcars)), sort(colnames(mtcars))]
+
+res <- mtdf0[rownames(mtdf1), colnames(mtdf1)]
+
+identical(colnames(mtdf2), colnames(res))
+identical(rownames(mtdf2), rownames(res))
+
+```
+
+
+

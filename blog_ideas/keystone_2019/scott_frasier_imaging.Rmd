@@ -1,0 +1,36 @@
+---
+title: "R Notebook"
+author: "Kevin Stachelek"
+output: 
+  pdf_document:
+    latex_engine: xelatex
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+Scott Frasier
+
+1. embryology imaging
+
+# Methods
+
+1. Hybridization chain reaction (HCR) Dirks et. al 2004
+	+ quantitiave
+	+ better resolution than conventional FISH
+2. CytoF
+	+ not work for RNA ISH
+3. MUSE HCR
+	+ method of amplificaiton; works off simliar principle to cyTOF?
+
+# approaches to speed imaging
+
+1. DLSM (laser-scanning to create excited plane)
+2. HySP (hyperspectral phaser)
+
+
+# problems 
+
+1. increase penetration depth to ensure rapid comparison of different depths
+

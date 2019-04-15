@@ -1,0 +1,73 @@
+---
+title: "dan_wagner.Rmd"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+# shotgun approach for fate relationships
+
+1. 
+
+canalization score ratio of diffusion distance through a graph
+
+coarse-graining
+
+subspace mapping (?
+
+sczfish
+
+# lineage information in SPRING graphs
+
+# adding tracks 
+
+time, lineage, perturbations 
+
+mosaic-seq
+scrublet
+cite-seq
+atac-seq
+ 
+ 
+tracer0seq from inducible timepoints and tissue types 
+
+branches, continua, loops, spokes 
+
+whole embryo mapping of terminal differentiation of genetic phenotypes 
+
+loops are transdifferentiation, 
+
+identify decision points in spokes 
+
+## tissue stem cell populations 
+
+
+# questions 
+
+no progenitors that remain in embryonic like state 
+
+rate of movement in prolif regions has overlap
+
+topological themes preserved across dimensional reductions 
+
+nonsensical question
+
+used PCA here but other matrix factorization methods also possible 
+
+1. omit cell cycle? would change topology
+
+ spatial transcriptomics? 
+ 
+ How stereotyped expression is? organoids?
+ 
+ dissociaion can bias the methods; fragile cell types not well represented? can use nuc-seq instead?
+ 
+ inducible compatible with kinetics of regeneration in adult fish?
+ 
+ looping differentiaiton?
+ 
+ uni or bidirectional; same time scale as conventional directed differentiaion? 
+

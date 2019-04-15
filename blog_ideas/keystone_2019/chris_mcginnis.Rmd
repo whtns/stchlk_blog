@@ -1,0 +1,31 @@
+---
+title: "chris_mcginnis.Rmd"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+multi-seq
+
+introduce sample barcodes before droplet formation
+
+## approaches
+
+1. LMO scaffolds enable sample barcode introduction
+
+modular, rapid, quenchable, cheap
+compatible with nuclei
+species/cell type/cell state-independent
+
+results in gene expression matrix and sample barcode matrix 
+
+MULTI-seq and doubletfinder
+
+doesn't work on fixed cells. 
+
+questions:
+
+1. exchange between lipid tags 

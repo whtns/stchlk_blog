@@ -1,0 +1,66 @@
+---
+title: "leo_kunz.Rmd"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+## Technical pat
+
+secreted molecules essential for cellular function
+
+1. growth factors 
+2. morphogens
+3. cytokines
+
+but spatial information and density is not well known
+
+### visualizing is difficult
+
+multiplexing ease tradeoff with signal/noise in IF, EM respectively
+
+### PLA an option 
+
+uses rolling-circle amplification 
+
+tried CCL21 in the lymph node 
+
+###  inflammatory responses by luminex measurement 
+
+show similar relative change of TNF concentration
+
+## CXCL12 is an important chemotactic protein
+
+enhances tumor growth burger and kipps 2005 blood
+
+works via gradients HSPCS attracted through gradients of CXCL12; so attempted to test.
+
+found no gradient via PLA of CXCL12 with uniformly distributed reference sets; did find gradient in bone
+
+## questions 
+
+AN: is there bound CXCL12 in tissue
+
+LK: 
+
+Alejo: is fixation ruining CXCL12 detection
+
+LK: difficult to avoid fixation in bone marrow. tried in blood vessel where fixation time didn't impact detection rate.
+
+AN: other tissues? spleen or lymph nodes?
+
+LK: tried brain, spleen, etc. cxcl12 is abundant everywhere someplaces more heterogeneous than others. 
+
+SF: what range of concentrations can detect given rolling circle amp size 
+
+ER: looked at spatial proximity of bound CXCL12 CXCL4 
+
+LK: difficult to find antibody for bound CXCL4
+
+SF: need to use knockout mice for validation
+LK: did make knockouts see three log scales fewer cells 
+
+## biology

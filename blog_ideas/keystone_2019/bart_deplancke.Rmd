@@ -1,0 +1,81 @@
+---
+title: "bart_deplancke.Rmd"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+## low-input single and intra-cell RNA-seq tech
+
+asap single cell analysis on web portal
+
+bulk samples dissociated from different donors then pooling samples is tricky
+
+intra-sample variance is hidden by pooling samples 
+
+need technologies for low-input samples; low-input FACS
+
+### existing tech
+
+1. dropseq and indrop minimal requirement of 10e3 cells; 90% cell loss to 25% cell loss
+
+## DisCo Deterministic Co-encapsulation
+
+1. avaoid 'incomplete' droplets 
+
+2. computre vision for confirmation of cell droplet inclusion
+
+detect 1-10e2 cells 
+
+### bead processing leads to substantial bead loss
+
+solution is to filer out beads from droplets 
+
+## application ot biology
+
+### intesticnal organoids
+
+different shapes of organoids could be sampled 
+
+###  batch correcion control
+
+### functions on top
+
+1. size/shape of cells 
+2. fluorescence-based detection 
+
+### transcriptome sequencing without cell death (live-seq)
+
+## live-seq
+
+1. force-microscopy with extraction of cytoplasm then sequencing 
+
+2. works 0.1-3.2 pL; cells can survive 
+
+>0.6 leads to 86% viability
+
+##  modified smart-seq 2 
+
+40 cells: 14 cells 1k genes; 7 cells 0.3-1k genes 
+
+questions:
+
+M-UIC: is there a link between cell size and transcriptome 
+
+AN: array of cantilevers and single cell traps? how do you exchange liquid from cantilever
+
+oil encapsulation protects from evaporation
+
+AN: can sample from one cell more than once? how similar?
+
+BD: second time sampling never yields transcriptome
+
+DP: work with biopsies; how about disco? 15-20 min all cells are stressed; how many captured per experiment? how much faster can it go?
+
+BD: 2000 genes/cell; speed can be improved by 1000 cells/hour; disocciation at 4 degree is an improvement; tissue handling needs to be given more attention. 
+
+
+

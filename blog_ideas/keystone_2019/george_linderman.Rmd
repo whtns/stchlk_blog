@@ -1,0 +1,15 @@
+---
+title: "george_linderman"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+# imputation methods for scRNAseq expression
+
+1. ALRA adaptively thresholded low-rank approximation 
+
+k singular value decompositoin with thresholding

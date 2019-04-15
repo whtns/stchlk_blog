@@ -1,0 +1,20 @@
+---
+title: "ilya_korunsky"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+cell type id despite tech and bio var
+
+harmony uses linear mixture models to account for confounding variables
+
+1. an elaboration of linear modeling a la combat or limma
+
+2. circular problem because cell types unknown 
+
+cluster first, then do linear regression in a cell-type specific manner 
+

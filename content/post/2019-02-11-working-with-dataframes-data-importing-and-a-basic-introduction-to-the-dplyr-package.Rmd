@@ -1,0 +1,9 @@
+---
+title: Working with dataframes, data importing, and a basic introduction to the dplyr
+  package
+author: Kevin Stachelek
+date: '2019-02-11'
+slug: working-with-dataframes-data-importing-and-a-basic-introduction-to-the-dplyr-package
+categories: []
+tags: []
+---

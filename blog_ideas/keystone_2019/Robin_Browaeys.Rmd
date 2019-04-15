@@ -1,0 +1,22 @@
+---
+title: "Robin Browaeys"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+NicheNet
+
+# modeling intercellular communication by linking ligands through genes
+
+ligands from neighboring cells
+
+vento-tormo et al nature 2018
+cohen et al cell 2018
+camp et a l nature 2017
+puram et al cell 2017
+
+# cancer-associated fibroblasts regulate expression 

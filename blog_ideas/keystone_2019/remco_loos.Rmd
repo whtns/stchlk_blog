@@ -1,0 +1,18 @@
+---
+title: "remco_loos.Rmd"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+## heterogeneity in acute myeloid leukemia thorugh bulk and sc gene expression profiling
+
+### module analysis at single cell level
+
+### cost of using modules at bulk level will impact;
+
+RL: not interested in identifying cell types so much; more in processes within a specific cell type; disease-relevant not focusing on cell types. 
+

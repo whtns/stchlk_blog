@@ -1,0 +1,26 @@
+---
+title: "
+"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+## id and modulate cellular drivers of immunity
+
+### natural correlates of immune control
+
+studying TB; can only study very active disease, either resolving or progressing Tb. 
+
+macague granuloma in infected Macaque; use sequncing by 'Seq-well' 
+
+### vaccine response
+
+### questions
+
+AN: look at virus-host interactions via scRNAseq
+
+AS: bacterial rna is not polyadenylated

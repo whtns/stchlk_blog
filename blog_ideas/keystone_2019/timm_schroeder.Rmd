@@ -1,0 +1,61 @@
+---
+title: "timm_schroeder.Rmd"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+transcription factors networks?
+
+# molecular metch of blood cell differentiation
+
+## what can't we do?
+
+[skylaki, hilsenbeck, schroeder](http://www.nature.com.sci-hub.tw/articles/nbt.3713)
+
+[ttt](https://gitlab.com/csd.ethz)
+
+temporal single=cell niche information (how represented?)
+
+# how signaling affects cell fate choice
+
+competition between transcription factors at cell fate choice points drive differentiation?
+
+## expression analysis of tfs
+
+cons
+
+1. pop avg 
+2. no quant exp meas
+3. rna data
+4. single time points
+5. no corr w/ current mol state to future behavior
+
+### response
+
+long term sc quant of endogenous tf dynamics
+
+every half hour measure absolute numbers of tfs 
+
+conclustions 
+
+there is no stochastic switch! 
+
+could grandchildren choices be mandated by previous generations? definitely
+
+## what regulates? signaling, not TFs
+
+1. signaling effects are coded in dynamics of 
+
+fluorescent biosensors developed for different signaling pathways. 
+
+differential effects of cytokines on same pathways may be acting via different patterns.
+
+questions?
+
+1. cellphonedb
+
+

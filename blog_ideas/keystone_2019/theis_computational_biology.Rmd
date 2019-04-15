@@ -1,0 +1,74 @@
+---
+title: "computational biology"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+## Fabian Theis
+
+### Modeling differentiation and stimulation resposne in single-cell genomics
+
+#### unfamiliar ideas
+1. latent spaces
+2. manifold alignment
+
+####
+
+augerer et al current opininon ins systems biology 2017
+
+range of 'modes' of single cell biology:
+wagner et al nature biotech 2016
+# scanpy
+
+end-to-end learning
+
+graph-based cell relationsships - [PAGA](https://github.com/theislab/paga)
+
+'listening to hte noise' paper about noise in models
+
+RNA Velocity [scvelo](https://github.com/theislab/scvelo)
+
+# neural networks in scRNAseq
+
+scVAE, scVI, VASC, SAUCIE, MAGAN 
+
+[DCA](https://github.com/theislab/dca)
+
+[MAGIC](https://www.biorxiv.org/content/early/2017/02/25/111591) is an altenrative? [SAVeR](https://github.com/mohuangx/SAVER)
+
+# style transfer using neurla networks in sc sequencing
+
+Simlutaion of excitation state/perturbation?
+
+[scGen](https://github.com/theislab/scGen)
+
+referencing DCA,
+
+
+1. zero-inflation is an issue brought up by Pe'er
+
+Theis uses ZINB; including 'count'? is solution
+
+2. cell cycle progression as confounding factor
+
+not addressed in single gene; more relevant in covariance/gene regulatory
+
+
+3. latent space skepticism, what sanity checks?
+
+quality measures are testing multiple cell types? 
+
+4. How take orthologs into account across species?
+
+very simply. is there room to expand?
+
+5. applications in medicine; immunotherapy selection
+
+theis is conservative
+
+
+

@@ -1,0 +1,52 @@
+---
+title: "georg_seelig.Rmd"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+### background
+
+scRNAseq depend on physical separation and amplification then multiplexing and pooling. 
+
+this is challenging and stressful for cells
+
+### using cell as sequencing compartment 
+
+1. fix and permeabilize 
+2. split-seq barcoding serially 
+
+### qc of split-seq genes detected
+
+1. worse than 10x cells, better than 10x nuclei. half as much as smart-seq cells 
+
+## scRNAseq w/ V(D)J pairing
+
+## questions 
+
+Washington University AN: mapping of interneurons from different brain regions cluster together? does that work for neurons across different brain regions
+
+GS: there's no automated way of solving cell id across brain regions. need manaul annotation
+
+RS: diff tech with scales etc. same bio clusters emerge. Make sense to use multple technologies or stick with one? 
+
+GS: no answer. combine smart-seq with 10x is popular. GS is skeptical. easier to pick tech based on setting. 
+
+AN: diff. between sensitivity for cells v. nuclei with split-seq v. 10x. why?
+GS: some thing about fixation 
+
+AN: 160k sc profile clustering to get cell types, how compare with recent published work from linarrson and macosko? tsne overlay is different from comparison of clustering. 
+
+GS: compared with prior papers from linarsson etc. oligodend aligns well. 
+
+ER: re sten linarsson; retention of intronic reads from split-seq? 
+
+GS: more with split-seq and useful for clustering 
+
+Sanofi: cell type clustering on tsne, are clusters disjoint? classifying on not dimensionally reduced; sector/wharf hyp. classifying based on known vocab of cell types; classify novel cell types
+
+GS: NLP not done; id new cell types depends on demonstration of fidelity of system. classification prior to dim red. not tried; different types all give same answer? 
+

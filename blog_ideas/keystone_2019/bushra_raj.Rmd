@@ -1,0 +1,17 @@
+---
+title: "bushra_raj.Rmd"
+author: "Kevin Stachelek"
+output: html_notebook
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```
+
+brain spec and lineage tress with sc profiling and CRISPR recorders 
+
+### URD trajectory reconstruction algorithm 
+
+scGESTALT CRISPR barcoding for lineage tracing
+
+
