@@ -227,45 +227,7 @@ shiny::renderUI({
     })
     do.call(tagList, plot_output_list)
 })</code></pre>
-<pre><code>## function (...) 
-## {
-##     if (length(outputArgs) != 0 &amp;&amp; !hasExecuted$get()) {
-##         warning(&quot;Unused argument: outputArgs. The argument outputArgs is only &quot;, 
-##             &quot;meant to be used when embedding snippets of Shiny code in an &quot;, 
-##             &quot;R Markdown code chunk (using runtime: shiny). When running a &quot;, 
-##             &quot;full Shiny app, please set the output arguments directly in &quot;, 
-##             &quot;the corresponding output function of your UI code.&quot;)
-##         hasExecuted$set(TRUE)
-##     }
-##     if (is.null(formals(origRenderFunc))) 
-##         origRenderFunc()
-##     else origRenderFunc(...)
-## }
-## &lt;bytecode: 0x3abee38&gt;
-## &lt;environment: 0x3ac1d50&gt;
-## attr(,&quot;class&quot;)
-## [1] &quot;shiny.render.function&quot; &quot;function&quot;             
-## attr(,&quot;outputFunc&quot;)
-## function (outputId, inline = FALSE, container = if (inline) span else div, 
-##     ...) 
-## {
-##     if (anyUnnamed(list(...))) {
-##         warning(&quot;Unnamed elements in ... will be replaced with dynamic UI.&quot;)
-##     }
-##     container(id = outputId, class = &quot;shiny-html-output&quot;, ...)
-## }
-## &lt;bytecode: 0x3abd030&gt;
-## &lt;environment: namespace:shiny&gt;
-## attr(,&quot;outputArgs&quot;)
-## list()
-## attr(,&quot;hasExecuted&quot;)
-## &lt;Mutable&gt;
-##   Public:
-##     clone: function (deep = FALSE) 
-##     get: function () 
-##     set: function (value) 
-##   Private:
-##     value: FALSE</code></pre>
+<div id="outfdcdf6bd7429273b" class="shiny-html-output"></div>
 <pre class="r"><code>shiny::observe({
 for (i in 1:length(p_list())) {
     local({
