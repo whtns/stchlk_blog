@@ -1,0 +1,163 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r, setup}
+knitr::opts_chunk$set(echo = F)
+library(tidyverse)
+library(rprojroot)
+library(fs)
+```
+
+# Dissecting cell-populations with probabilistic models
+
+## Models of brain dev
+
+## single cell data
+
+### Appreciate cell populations
+
+### intro to droplet-based sequencing 
+	+ UMIs are the magic
+	
+### exponential plot of single cell throughput
+
+	+ microwells promise increased throughput over dropseq?
+	
+### Brain development: cortex
+
+1. measured E15 E18 P4 data
+
+What is their 3d viz? 
+
+# single cell portraits of changing tissues?
+
+## How to measure preturbations?
+
+Pop-alignment?
+
+### conceptual challenge:
+	1. cell is point in HD space
+	2. population is a distribution in this space
+	
+## P(g|disease)
+
+probabilistic mixture models 
+
+represented as m << n
+
+make two transformations
+1. low-dimensional projection
+2. fit each with a blog
+	each blob is a gaussian
+	
++ image represents very discrete blobs 
+
+how do you evalaute your low-d representation?
+
+tsne
+umap 
+flt-sne
+
++ tabula muris data represented as 
+	parameters 10^2 but cells 10^5
+	
++ are models good? 
+
++ regions of high density
+
++ relies on simulation
+	+ compare simulation to real data
+	+ how is simluation done? 
+		+ methods
+		+ assumptions
+
+index of 2d projection
+
+models 1e3 times smaller than data 
+
+error on par with subsampling
+
+# What can we do?
+
+## classification: single cell diagnostics
+
+1. public data set (10x?)
+two AML two controls
+
+Build models of immune system
+
+compare distribution of cell populations 
+## 	finer detail
++ pathways upregulated in cell populations (how?)
+	+ erth prog cells; upreg of IL2
+	
+## classify new patients with AML
+
+are they working with existing classes of patients with AML
+consider cases of lung x-ray classificaiton?
+
+## P(Helth| cell state) v p(AML|cell state)
+
+### how do you tend to deal with batch effects? 
+
+##  align models?
+
+### MM is B cell cancer DARZALEX treatment; all relapse
+
++ Blood profiling with 1e5 cells with PBMCs
+
++ label cells with marker genes 
+	+ just looking at differences in distribution of immune cells?
+	
++ B cell decline in circulating cells 
+
+do you assume that there are no novel cell types? 
+
+### tracking cell populations 
+
++ can you intervene? 
+
+zev gartner- multiseq - lipids
+lior pachter- clicktags click chemistry
+
+popalign 
+
+seurat breaks at 8 samples? 
+
+__# Can't find 'PopAlign' anywhere online!__
+
+in vivo 
+
+### single cell data clusters 
+dynamics (pseudotime) missing from the talk
+	monocle 
+	wishbone 
+	do a good job???
+	
+gaussians are a problem why?
+miss b cells by how? 
+
+penalize models with more clusters tradeoff between clusters and error
+
+is gaussian mixture model a representation of cell states?
+
++ two interpretations
+	1. stable point--build blobs around the point
+	2. 
+	
+
+
+Nuclear RNA-seq on RB blocks
+
+
+
+### what do you think of multi-omics? 
+
+
+
+
+
+
+

@@ -1,0 +1,87 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r, setup}
+knitr::opts_chunk$set(echo = F)
+library(tidyverse)
+library(rprojroot)
+library(fs)
+```
+
+
+Retina differentiates in a central to peripheral wave 
+
+Cone cells and the origin of retinoblastoma
+
+removal of RB protein in cone cells, they re-entre the cell cycle and proliferate, otherwise post-mitotic
+
+several proteins associated with cone cell Rb loss reposnse
+
+MDM2, MYCN, p27, CycE, CDK2, E2F3
+
+
+mouse doesn’t create fovea also
+
+How to make model system more accurate
+
+use organoids 
+
+### do organoids recapitulate cone cell maturation? 
+
+# IF staining 
+
+1. RB1 expressoin in ARR3+ Organoid cone precursors
+
+progenitor cell maintenance in organoid models 
+
+MDM2 expressoin tied to ARR3 expression in fetal tissue 
++ contra organoid; cone cells (ARR3+) cells w/o MDM2 
++ increase with age 
+
+MCYN 
+cones: nuclear MYCN but disappears in fovea
+oganoid: MYCN expression in ARR3+ 
+
+
+### Do retinal organoids recapitulate cone maturation? 
+No at protein level
+
+#  transcriptomic level scRNAseq
+
+### single cell isolation and FACS or C1 
+
+fed throuhg Smart-seq to get full length trnascripts 
+
+## cone Cell precursors
+
+### PR devleop trajectory 
+
+Fetal: VSX2, expressed in progenitors 
+Cell cycle: G2/M and S both present in progen, not others 
+
+Marker cells: 
+
+cones: OPN1SW, GNAT2
+rod: GNAT1, NR2E3
+
+### Rod-cone branch point express ATOH7
+
++ PDE6H, GNGT2
+
+## Organoids
+
+### Rod/cone split
+
+### tight relatoinship with Age 
+
+### Batch effect with Production Method? 
+
+### Organoid cones high level of PR markers overall 
+
+### Are fetal and organoid cells seurat integrated? 
+
+#### diffex between organoid and fetal cones 
+
+

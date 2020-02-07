@@ -1,0 +1,106 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r, setup}
+knitr::opts_chunk$set(echo = F)
+library(tidyverse)
+library(rprojroot)
+library(fs)
+```
+
+## load packages
+
+```{r}
+library(GenVisR)
+library(gridExtra)
+library(tidyverse)
+```
+
+## load data
+
+```{r}
+mutationData <- read.delim("http://genomedata.org/gen-viz-workshop/GenVisR/BKM120_Mutation_Data.tsv")
+clinicalData <- read.delim("http://genomedata.org/gen-viz-workshop/GenVisR/BKM120_Clinical.tsv")
+mutationBurden <- read.delim("http://genomedata.org/gen-viz-workshop/GenVisR/BKM120_MutationBurden.tsv")
+```
+
+
+```{r}
+# Reformat the mutation data for waterfall()
+mutationData <- mutationData[,c("patient", "gene.name", "trv.type", "amino.acid.change")]
+colnames(mutationData) <- c("sample", "gene", "variant_class", "amino.acid.change")
+
+# Create a vector to save mutation priority order for plotting
+mutation_priority <- as.character(unique(mutationData$variant_class))
+
+# Create an initial plot
+plot1 <- waterfall(mutationData, fileType = "Custom", variant_class_order=mutation_priority, out = "grob")
+
+grid.arrange(plot1, ncol = 1)
+
+```
+
+
+```{r}
+set.seed(426)
+
+library(gridExtra)
+
+inputData <- data.frame(sample = sample(1:5, 20, replace = T),
+												gene = sample(letters[1:5], 20, replace = T),
+												variant_class = sample(c("silent", "frameshift", "missense"), 20, replace = T))
+
+most_deleterious <- c("frameshift", "missense", "silent")
+
+p1 <- waterfall(inputData, fileType = "Custom", variant_class_order = most_deleterious, mainXlabel = T, out = "grob")
+
+p2 <- waterfall(inputData, fileType = "Custom", variant_class_order = rev(most_deleterious), mainXlabel = T, out = "grob")
+
+grid.arrange(p1, p2, ncol = 2)
+
+inputData[inputData$sample=="5" & inputData$gene=="a",]
+```
+
+
+```{r}
+mutationHierarchy <- c("nonsense", "frame_shift_del", "frame_shift_ins", "in_frame_del", "splice_site_del", "splice_site", "missense", "splice_region", "rna")
+
+grob1 <- waterfall(mutationData, fileType = "Custom", variant_class_order = mutationHierarchy, out = "grob")
+
+grid.arrange(grob1, ncol = 1)
+```
+
+```{r}
+mut_colors <- scales::hue_pal()(length(mutationHierarchy))
+
+mutationColors <- set_names(mut_colors, mutationHierarchy)
+
+
+grob1 <- waterfall(mutationData, fileType = "Custom", variant_class_order=mutationHierarchy, mainPalette=mutationColors, out = "grob")
+
+grid.arrange(grob1)
+
+```
+
+```{r}
+# reformat clinical data to long format
+clinicalData_2 <- clinicalData[,c(1,2,3,5)]
+colnames(clinicalData_2) <- c("sample", "Months on Study", "Best Response", "Treatment Setting")
+
+clinicalData_2 <- group_by(clinicalData_2, sample) %>% 
+	tidyr::gather("variable", "value", -sample)
+
+# find which samples are not in the mutationBurden data frame
+sampleVec <- unique(mutationData$sample)
+sampleVec[!sampleVec %in% clinicalData$sample]
+
+# fix clinical data to match mutationData
+clinicalData_2$sample <- gsub("^WU(0)+", "", clinicalData_2$sample)
+
+# create the waterfall plot
+waterfall(mutationData, fileType = "Custom", variant_class_order=mutationHierarchy, mainPalette=mutationColours, mutBurden=mutationBurden, clinData=clinicalData_2, clinLegCol=3, clinVarCol=c('0-6'='#ccbadc', '6.1-12'='#9975b9', '12.1+'='#663096', 'Partial Response'='#c2ed67', 'Progressive Disease'='#E63A27', 'Stable Disease'='#e69127', '1'='#90ddee', '2'='#649aa6', '3+'='#486e77'), clinVarOrder=c('1', '2', '3+', 'Partial Response', 'Stable Disease', 'Progressive Disease', '0-6', '6.1-12', '12.1+'), section_heights=c(1, 5, 1))
+
+
+```

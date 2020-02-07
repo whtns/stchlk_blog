@@ -1,0 +1,117 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r, setup}
+knitr::opts_chunk$set(echo = F)
+library(tidyverse)
+library(rprojroot)
+library(fs)
+```
+
+# axel visel
+
+## # distant enhancers 
+
+### how to find them 
+
+### why care
+
++ noncoding contribute to disease
+
++ distant-acting enhancers 
+
+### enhancer intro
+
++ tissue specific expression
+
+  + how is this measured? chip-seq? atac-seq?!
+
++1e5 enhancers for 2e4 genes
+
++ exact locations poorly mapped 
+
+dissect tissue, corss-link by pfa, include histone and tfs, and coactivators 
+
+#### transgenic validation of candidate enhancers 
+
++ clone enhancer into plasmid coupled with marker, transduce, random integration, but tissue specific expression and visualization
+
+ca. 2008 
+
++ can validate human enhancers in the mouse
+
+#### resources
+
+1. [VISTA enhancer browser](https://enhancer.lbl.gov/cgi-bin/imagedb3.pl?form=presentation&show=1&experiment_id=26&organism_id=1)
+
+### are enhancers necessary?
+  
+#### evidence from knockout studies 
+
++ very few knockouts of enhancers (usually one-off)
+
++ learn rules of enhancer activity if had a comprehensive resource 
+
+### Two Gli3 Limb enhancers 
+
++ CRISPR-2KO of Gli3
+
+
+### three methods
+
++ computations 
+  + no high-confidence tools available 
+
++ massively parallel reporter assays 
+  +restricted to cell lines 
+  
++ in vivo
+  + challenges: 
+    + lacZ reporter 
+    + position effecsts 
+    + limited reproducibility
+    + low throughput
+  + CRISPR makes reproducibility better 
+  
+  
+
+1425
+
+
+
+## challenges enhancers human disease
+
+### functional redundancy
+
++clinical geneicists challenges 
+
+### functional redundancy
+
+### predicting changes after enhancer mutations 
+
+## two studies 
+
+### functional robust of ultraconserv. enhancers to point mutation
+
++ ultraconserved sequences in the human genome (noncoding)
+
++ 
+
+### questions 
+are enhancers present in tandem? 
+
+redundant enhancers are not closer to each other than nonredundant enhancers 
+
+redundant enhancers not derived from the same sequence 
+
+Can put human enhancers in mouse and observe similar expression patterns 
+
+most enhancers are sequence conserved between human and mouse. 
+
+harder when enhancers degenerate, but very rare. 
+
+
+
+### large-scale in vivo mutagen screening of enhancers 

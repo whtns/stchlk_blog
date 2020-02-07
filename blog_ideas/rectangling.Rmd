@@ -1,0 +1,26 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r setup, echo = F, message = F, warning = F}
+knitr::opts_chunk$set(echo = F)
+library(tidyverse)
+library(rprojroot)
+library(fs)
+library(glue)
+```
+
+
+```{r}
+library(tidyr)
+library(dplyr)
+library(repurrrsive)
+```
+
+```{r}
+users <- tibble(user = gh_users)
+
+test <- unnest_wider(users, user)
+```
+

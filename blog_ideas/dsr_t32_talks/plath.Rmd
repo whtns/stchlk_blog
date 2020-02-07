@@ -1,0 +1,108 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r, setup}
+knitr::opts_chunk$set(echo = F)
+library(tidyverse)
+library(rprojroot)
+library(fs)
+```
+
+
+Mechanisms of Xist RNA localization and ufnction in X-inactivation
+
+# placental mammals have dosave comp by X-inact. 
+
++ mediated by Xist
+
++ loc on X chrom
+
++ expressed when ESCs induced to dif for when embryo implants
+	+ implicatoins for lab babies?
+	
++ Xist spreads in cis from from transcript to target genes on same chrom; stays expressed in every cell
+
+## Mechanism
+
++ Model: xist binds hnRNP-USafA then SHARP/SPEN to activate HDAC3 on hromati nand induce silencing 
+	+ scffold for deacetylation 
+	
++ X-reactivation occurs during retrun from differntiated to ESC
+
+
+##  open questions 
+
++ How 100-200 foci silence 2e3 genes? 
+
++ How Xist spres only in cis?
+
+	+ how xist independnee of XCI very early in ESC diff. 
+		+ Xist not necessary and DNA meth not sufficient 
+
+## How Xist spread in cis? 
+
++ spreads linearly or saltatory? 
+
++ use "Chip-seq for RNA" 
+	+ Rep-seq method to find histogram of Xist 
+	+ peaks are visible (saltatory)
+
++ looked at Chip for Xist peaks in MESCs (abundant!)
+	+ Found nothing 
+	+ maybe spatial? 
+	
++ take published Hi-C from Bing Ren, map the two
+	+ good correlation 
+	+ proximity model adopted 
+	
+## how to prove? 
++ move Xist to new locus 
+	+ verify if spatial organization is consistent
+	
+
+Does interaction go both ways?
++ X makes few interactions with autosomes in published Hi-C data; little danger or spurious inactivation 
++ why doesn't this ever happen, though?
+
+### How Xist silence so many genes? and how independent immediately after XCI in ESC diff.
+
++ strongest Xist -interactors  are RNA processing factors implicated in l-l phase separation
+
++ PTBP1 and others 
+	+ franctionate euchrom and het. chrom 
+	+ all proteins located in heterochromatin in male cells 
+	
++ l-l phase separation is what?
+	+ droplet phase arises due to 
+		+ MATR3, CELf1, TDP-43 
+		
++ CLIP-seq 
+
++ E-repeat RNA 
+
+## question
+
+1. what about replication?
+
++ xist cloud separates into two clouds; condense during mitosis; anaphase come off; G1 re-transcribed then reformed clouds
+
++ after 48 hours expreimentally no longer needed; why is RNA always expressed in vivo? 
+
+2. How to image condensates or blobs? How can image other condensates, ex. at exterior of nucleus?
+
++ PTBP1 has puncta throughout nucleoplams. Should be super-enriched? rather seen as filamentous; don't see round aggregates; can image Xist and assoicated proteins; 
+
++ some higher-order structure, maybe not a blob
+
+3. find E-element in other ncRNAs? transfter E-elemnent, would we get condensate? 
++ cobinding of PTBP1/MTR3; just starting
+
++ more genes escape X inactivation in humans than in mouse; e-repeat less repetitive 
+
+
+
+
+
+	
