@@ -1,5 +1,6 @@
-public/*
-<<<<<<< HEAD
 .Rproj.user
-=======
->>>>>>> ea59ce2286e3fcee5d09e3654fdc33638ae2ae21
+.Rhistory
+.RData
+.Ruserdata
+public
+blogdown
